@@ -19,6 +19,31 @@ wiznet W5300, подключенный пространством регистр
 
 
 
+[sl811 adding...]
+
+ports #yyXX, #XX=const
+
+#00XX..#7FXX - sl811 data register (enables using INIR/OTIR for 128byte
+transfers)
+
+#FFXX - control R/W register
+
+#BFXX - sl811 address register
+
+
+more control bits:
+sl811 reset,
+sl811 int enable
+sl811 int register (not absolutely needed)
+sl811 m/s
+
+rom page (2 bits)
+
+
+== must be 2 ports.
+
+
+
 
 адресное пространство w5300 мапится в пространство zx-bus ROM 16k так:
 
