@@ -1,0 +1,7 @@
+#!/bin/bash
+
+FILES="../top.v ../zbus.v ../wizmap.v ../ports.v"
+TB="tb.v ssz80.v"
+
+vlog -sv -novopt -incr ${FILES} ${TB}
+
