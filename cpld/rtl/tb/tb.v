@@ -21,11 +21,37 @@ module tb;
 	     rd_n,
 	     wr_n;
 
+	wire int_n;
+
+	wire csrom_n;
+
+	wire iorqge,
+	     blkrom;
+	
+
 	wire [15:0] a;
 	wire [ 7:0] d;
 
 
 	reg [7:0] tmp;
+
+
+
+
+	wire [9:0] w5300_addr;
+	wire       w5300_rst_n;
+	wire       w5300_cs_n;
+	wire       w5300_int_n;
+
+	wire       sl811_rst_n;
+	wire       sl811_a0;
+	wire       sl811_cs_n;
+	wire       sl811_ms;
+	wire       sl811_intrq;
+
+
+	reg [1:0] where_rom;
+
 
 
 
@@ -49,17 +75,19 @@ module tb;
 
 
 
+	initial
+	begin
+		where_rom = 2'b00;
+	end
+
+
+
 
 	initial
 	begin
 		wait(rst_n===1'b1);
 		@(posedge clk);
 
-		ssz80.memwr(16'h1234,8'hAB);
-		ssz80.memwr(16'habcd,8'h54);
-		ssz80.memrd(16'h1111,tmp);
-		ssz80.iowr(16'h2222,8'h99);
-		ssz80.iord(16'heeee,tmp);
 	end
 
 
@@ -79,9 +107,25 @@ module tb;
 		.zwr_n(wr_n),
 		.zrfsh_n(1'b1),
 
-		.zcsrom_n(a[15:14]===2'b00),
+		.zcsrom_n(csrom_n),
+		
+		.ziorqge(iorqge),
+		.zblkrom(blkrom),
 
-		.zrst_n(rst_n)
+		.zrst_n(rst_n),
+		.zint_n(int_n),
+
+
+		.w5300_rst_n(w5300_rst_n),
+		.w5300_addr (w5300_addr ),
+		.w5300_cs_n (w5300_cs_n ),
+		.w5300_int_n(w5300_int_n),
+		
+		.sl811_rst_n(sl811_rst_n),
+		.sl811_intrq(sl811_intrq),
+		.sl811_ms   (sl811_ms   ),
+		.sl811_cs_n (sl811_cs_n ),
+		.sl811_a0   (sl811_a0   )
 
 	);
 
@@ -109,6 +153,39 @@ module tb;
 		.a(a),
 		.d(d)
 	);
+
+
+
+
+
+	w5300 w5300
+	(
+		.rst_n(w5300_rst_n),
+		.addr (w5300_addr ),
+		.cs_n (w5300_cs_n ),
+		.rd_n (rd_n       ),
+		.wr_n (wr_n       ),
+		.int_n(w5300_int_n)
+	);
+
+
+	sl811 sl811
+	(
+		.rst_n(sl811_rst_n),
+		.a0   (sl811_a0   ),
+		.cs_n (sl811_cs_n ),
+		.wr_n (wr_n       ),
+		.rd_n (rd_n       ),
+		.ms   (sl811_ms   ),
+		.intrq(sl811_intrq)
+	);
+
+
+
+
+
+	// csrom gen
+	assign csrom_n = (a[15:14]==where_rom[1:0]);
 
 
 
