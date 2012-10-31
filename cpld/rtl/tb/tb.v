@@ -42,12 +42,15 @@ module tb;
 	wire       w5300_rst_n;
 	wire       w5300_cs_n;
 	wire       w5300_int_n;
+	wire [3:0] w5300_brdy;
 
 	wire       sl811_rst_n;
 	wire       sl811_a0;
 	wire       sl811_cs_n;
 	wire       sl811_ms;
 	wire       sl811_intrq;
+
+	reg usb_power;
 
 
 	reg [1:0] where_rom;
@@ -120,12 +123,15 @@ module tb;
 		.w5300_addr (w5300_addr ),
 		.w5300_cs_n (w5300_cs_n ),
 		.w5300_int_n(w5300_int_n),
+		.w5300_brdy (w5300_brdy ),
 		
 		.sl811_rst_n(sl811_rst_n),
 		.sl811_intrq(sl811_intrq),
 		.sl811_ms   (sl811_ms   ),
 		.sl811_cs_n (sl811_cs_n ),
-		.sl811_a0   (sl811_a0   )
+		.sl811_a0   (sl811_a0   ),
+
+		.usb_power(usb_power)
 
 	);
 
@@ -165,7 +171,9 @@ module tb;
 		.cs_n (w5300_cs_n ),
 		.rd_n (rd_n       ),
 		.wr_n (wr_n       ),
-		.int_n(w5300_int_n)
+		.int_n(w5300_int_n),
+
+		.brdy (w5300_brdy )
 	);
 
 

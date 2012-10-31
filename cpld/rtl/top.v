@@ -26,6 +26,7 @@ module top
 	output wire [ 9:0] w5300_addr,
 	output wire        w5300_cs_n,
 	input  wire        w5300_int_n,
+	input  wire [ 3:0] w5300_brdy,
 
 
 	// sl811 Usb chip
@@ -35,7 +36,10 @@ module top
 	output wire        sl811_cs_n,
 	output wire        sl811_a0
 
-	// = total 51 pins (maximum is 66)
+	// usb power presence
+	input  wire        usb_power
+
+	// = total 56 pins (maximum is 66)
 	//   among them 27 outputs (maximum is 64)
 );
 
@@ -124,9 +128,12 @@ module top
 		//
 		.w5300_a0inv(w5300_a0inv),
 		.w5300_rst_n(w5300_rst_n),
+		.w5300_brdy (w5300_brdy ),
 		//
 		.sl811_ms   (sl811_ms   ),
-		.sl811_rst_n(sl811_rst_n)
+		.sl811_rst_n(sl811_rst_n),
+		//
+		.usb_power(usb_power)
 	);
 
 

@@ -29,9 +29,13 @@ module ports
 	output reg        rommap_ena,
 	output reg        w5300_a0inv,
 	output reg        w5300_rst_n,
+
+	input  wire [3:0] w5300_brdy,
 	//
 	output reg        sl811_ms,
 	output reg        sl811_rst_n
+	//
+	input  wire       usb_power
 );
 
 
@@ -44,12 +48,18 @@ module ports
 		ena_w5300_int <= 1'b0;
 		ena_sl811_int <= 1'b0;
 		ena_zxbus_int <= 1'b0;
+
+		w5300_rst_n <= 1'b0;
+		sl811_rst_n <= 1'b0;
 	end
 	else if( wrena && addr==2'b11 )
 	begin
 		ena_w5300_int <= wrdata[2];
 		ena_sl811_int <= wrdata[3];
-		ena_zxbus_int <= wrdata[7];
+		ena_zxbus_int <= wrdata[6];
+
+		w5300_rst_n <= wrdata[4];
+		sl811_rst_n <= wrdata[5];
 	end
 	
 
@@ -61,7 +71,6 @@ module ports
 		rommap_ena <= 1'b0;
 		
 		w5300_a0inv <= 1'b0;
-		w5300_rst_n <= 1'b0;
 	end
 	else if( wrena && addr==2'b10 )
 	begin
@@ -69,21 +78,18 @@ module ports
 		rommap_ena <= wrdata[2];
 		
 		w5300_a0inv <= wrdata[3];
-		w5300_rst_n <= wrdata[7];
 	end
 
 
 	// wr #81AB
-	always @(posedge wrstb_n, negedge rst_n)
-	if( !rst_n )
+	always @(posedge wrstb_n, negedge sl811_rst_n)
+	if( !sl811_rst_n )
 	begin
-		sl811_ms    <= 1'b0;
-		sl811_rst_n <= 1'b0;
+		sl811_ms    <= 1'b1;
 	end
 	else if( wrena && addr==2'b01 )
 	begin
 		sl811_ms    <= wrdata[0];
-		sl811_rst_n <= wrdata[7];
 	end
 
 
@@ -92,11 +98,11 @@ module ports
 	always @*
 	case(addr)
 
-		2'b11: rddata = { internal_int, ena_zxbus_int, 2'bXX, ena_sl811_int, ena_w5300_int, sl811_intrq, ~w5300_int_n };
+		2'b11: rddata = { internal_int, ena_zxbus_int, sl811_rst_n, w5300_rst_n, ena_sl811_int, ena_w5300_int, sl811_intrq, ~w5300_int_n };
 
-		2'b10: rddata = { w5300_rst_n, 3'bXXX, w5300_a0inv, rommap_ena, rommap_win };
+		2'b10: rddata = { w5300_brdy[3:0], w5300_a0inv, rommap_ena, rommap_win[1:0] };
 
-		2'b01: rddata = { sl811_rst_n, 6'bXXXXXX, sl811_ms };
+		2'b01: rddata = { 6'bXXXXXX, usb_power, sl811_ms };
 
 		default: rddata = 8'bXXXX_XXXX;
 
