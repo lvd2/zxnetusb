@@ -8,17 +8,24 @@ module top
 	// zxbus
 	input  wire [15:0] za,
 	inout  wire [ 7:0] zd,
-	//
+	
+	// buffered data bus for chips
+	inout  wire [ 7:0] bd,
+
+	// zxbus control signals
 	input  wire        ziorq_n,
 	input  wire        zrd_n,
 	input  wire        zwr_n,
 	input  wire        zmreq_n,
-	input  wire        zrfsh_n,
 	output wire        ziorqge,
 	output wire        zblkrom,
 	input  wire        zcsrom_n,
 	input  wire        zrst_n,
 	output wire        zint_n,
+
+	// buffered RD_N and WR_N for chips
+	output wire        brd_n,
+	output wire        bwr_n,
 
 
 	// w5300 Ethernet chip
@@ -26,15 +33,14 @@ module top
 	output wire [ 9:0] w5300_addr,
 	output wire        w5300_cs_n,
 	input  wire        w5300_int_n,
-	input  wire [ 3:0] w5300_brdy,
 
 
 	// sl811 Usb chip
 	output wire        sl811_rst_n,
 	input  wire        sl811_intrq,
-	output wire        sl811_ms,
+	output wire        sl811_ms_n,
 	output wire        sl811_cs_n,
-	output wire        sl811_a0
+	output wire        sl811_a0,
 
 	// usb power presence
 	input  wire        usb_power
@@ -67,11 +73,12 @@ module top
 		.za(za),
 		.zd(zd),
 		//
+		.bd(bd),
+		//
 		.ziorq_n (ziorq_n ),
 		.zrd_n   (zrd_n   ),
 		.zwr_n   (zwr_n   ),
 		.zmreq_n (zmreq_n ),
-		.zrfsh_n (zrfsh_n ),
 		.ziorqge (ziorqge ),
 		.zblkrom (zblkrom ),
 		.zcsrom_n(zcsrom_n),
@@ -128,14 +135,17 @@ module top
 		//
 		.w5300_a0inv(w5300_a0inv),
 		.w5300_rst_n(w5300_rst_n),
-		.w5300_brdy (w5300_brdy ),
 		//
-		.sl811_ms   (sl811_ms   ),
+		.sl811_ms_n (sl811_ms_n ),
 		.sl811_rst_n(sl811_rst_n),
 		//
 		.usb_power(usb_power)
 	);
 
+
+	// buffered RD_N and WR_N
+	assign brd_n = zrd_n;
+	assign bwr_n = zwr_n;
 
 
 

@@ -8,11 +8,12 @@ module zbus
 	input  wire [15:0] za,
 	inout  wire [ 7:0] zd,
 	//
+	inout  wire [ 7:0] bd,
+	//
 	input  wire        ziorq_n,
 	input  wire        zrd_n,
 	input  wire        zwr_n,
 	input  wire        zmreq_n,
-	input  wire        zrfsh_n,
 	output wire        ziorqge,
 	output wire        zblkrom,
 	input  wire        zcsrom_n,
@@ -44,6 +45,9 @@ module zbus
 
 	wire mrd, mwr;
 
+	wire ena_dbuf;
+	wire ena_din;
+	wire ena_dout;
 
 
 	// addr decode
@@ -82,10 +86,17 @@ module zbus
 
 
 
-	// ports data read
-	assign zd = (io_addr_ok && !ziorq_n && !zrd_n && za[15] && (za[9:8]!=2'b00)) ?
-	            ports_rddata : 8'bZZZZ_ZZZZ;
+	assign ena_dbuf = (~sl811_cs_n) | (~w5300_cs_n);
+	assign ena_din  = ~zwr_n;
+	assign ena_dout = ~zrd_n;
 
+
+	// ports data read/buffering
+	assign zd = (io_addr_ok && !ziorq_n && !zrd_n && za[15] && (za[9:8]!=2'b00)) ?
+	            ports_rddata : ( (ena_dbuf && ena_dout) ? bd : 8'bZZZZ_ZZZZ );
+
+
+	assign bd = (ena_dbuf && ena_din) ? zd : 8'bZZZZ_ZZZZ;
 
 endmodule
 
