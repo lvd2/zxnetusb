@@ -32,6 +32,10 @@ module tb;
 	wire [15:0] a;
 	wire [ 7:0] d;
 
+	wire [ 7:0] bd;
+
+	wire brd_n, bwr_n;
+
 
 	reg [7:0] tmp;
 
@@ -108,7 +112,6 @@ module tb;
 		.zmreq_n(mreq_n),
 		.zrd_n(rd_n),
 		.zwr_n(wr_n),
-		.zrfsh_n(1'b1),
 
 		.zcsrom_n(csrom_n),
 		
@@ -118,16 +121,20 @@ module tb;
 		.zrst_n(rst_n),
 		.zint_n(int_n),
 
+		.bd(bd),
+
+		.bwr_n(bwr_n),
+		.brd_n(brd_n),
+
 
 		.w5300_rst_n(w5300_rst_n),
 		.w5300_addr (w5300_addr ),
 		.w5300_cs_n (w5300_cs_n ),
 		.w5300_int_n(w5300_int_n),
-		.w5300_brdy (w5300_brdy ),
 		
 		.sl811_rst_n(sl811_rst_n),
 		.sl811_intrq(sl811_intrq),
-		.sl811_ms   (sl811_ms   ),
+		.sl811_ms_n (sl811_ms_n ),
 		.sl811_cs_n (sl811_cs_n ),
 		.sl811_a0   (sl811_a0   ),
 
@@ -169,11 +176,10 @@ module tb;
 		.rst_n(w5300_rst_n),
 		.addr (w5300_addr ),
 		.cs_n (w5300_cs_n ),
-		.rd_n (rd_n       ),
-		.wr_n (wr_n       ),
+		.rd_n (brd_n      ),
+		.wr_n (bwr_n      ),
 		.int_n(w5300_int_n),
-
-		.brdy (w5300_brdy )
+		.d(bd)
 	);
 
 
@@ -182,10 +188,11 @@ module tb;
 		.rst_n(sl811_rst_n),
 		.a0   (sl811_a0   ),
 		.cs_n (sl811_cs_n ),
-		.wr_n (wr_n       ),
-		.rd_n (rd_n       ),
-		.ms   (sl811_ms   ),
-		.intrq(sl811_intrq)
+		.wr_n (bwr_n      ),
+		.rd_n (brd_n      ),
+		.ms   (~sl811_ms_n),
+		.intrq(sl811_intrq),
+		.d(bd)
 	);
 
 

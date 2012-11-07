@@ -12,7 +12,8 @@ module sl811
 	input  wire       rd_n,
 	input  wire       wr_n,
 	input  wire       ms,
-	output reg        intrq
+	output reg        intrq,
+	inout  wire [7:0] d
 );
 
 	

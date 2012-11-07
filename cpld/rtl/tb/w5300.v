@@ -11,7 +11,8 @@ module w5300
 	input  wire       cs_n,
 	input  wire       rd_n,
 	input  wire       wr_n,
-	output reg        int_n
+	output reg        int_n,
+	inout  wire [7:0] d
 );
 
 	
