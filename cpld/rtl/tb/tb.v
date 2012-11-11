@@ -230,19 +230,20 @@ module tb;
 	
 	
 
-		test_resets();
-
-		test_ints();
-
-		check_sl811_port();
+		test_pwon_resets();
+		test_pwon_ints();
 
 
-		repeat(10000)
+
+		forever // repeat(10000)
 		begin
-			if( $random>>31 )
-				check_sl811_access();
-			else
-				check_w5300_access();
+			case( $random%5 )
+			0: check_sl811_access();
+			1: check_w5300_access();
+			2: test_resets();
+			3: check_sl811_port();
+			4: test_ints(); 
+			endcase
 		end
 
 		
@@ -474,39 +475,29 @@ module tb;
 
 		reg [7:0] tmp;
 
-		z.iowr(sl811_port,8'd0);
+		reg ms;
+
+		ms=$random>>31;
+
+		z.iowr(sl811_port,ms);
+
 		@(posedge clk);
-		if( s.get_ms()!==0 )
+		if( (s.get_rst_n()!==1'b0 && s.get_ms()!==ms   ) ||
+		    (s.get_rst_n()!==1'b1 && s.get_ms()!==1'b1 ) )
 		begin
-			$display("can't set sl811_ms_n to 1!");
+			$display("sl811_ms_n behaves wrong!");
 			$stop;
 		end
 
-		z.iowr(sl811_port,8'd1);
-		@(posedge clk);
-		if( s.get_ms()!==1 )
-		begin
-			$display("can't set sl811_ms_n to 0!");
-			$stop;
-		end
 		
-		usb_power <= 1'b0;
+		usb_power <= $random>>31;
+		@(posedge clk);
 		z.iord(sl811_port,tmp);
-		if( tmp[1]!==0 )
+		if( tmp[1]!==usb_power )
 		begin
-			$display("can't sense usb_power=0!");
+			$display("can't sense usb_power!");
 			$stop;
 		end
-
-		usb_power <= 1'b1;
-		z.iord(sl811_port,tmp);
-		if( tmp[1]!==1 )
-		begin
-			$display("can't sense usb_power=1!");
-			$stop;
-		end
-
-
 
 	endtask
 
@@ -514,8 +505,7 @@ module tb;
 
 
 
-	
-	task test_ints;
+	task test_pwon_ints;
 
 		reg [7:0] tmp;
 
@@ -541,76 +531,120 @@ module tb;
 			$display("ext.int assertion enabled after reset!");
 			$stop;
 		end
-		//
-		s.set_intrq(1'b1);
-		z.iord(rstint_port,tmp);
-		if( tmp[1]!==1'b1 )
-		begin
-			$display("cant sense INTRQ from sl811!");
-			$stop;
-		end
-		w.set_int_n(1'b0);
-		z.iord(rstint_port,tmp);
-		if( tmp[0]!==1'b1 )
-		begin
-			$display("cant sense int_n from w5300!");
-			$stop;
-		end
-		//
-		z.iowr(rstint_port,{tmp[7:4],2'b10,tmp[1:0]});
-		z.iord(rstint_port,tmp);
-		if( tmp[7]!==1'b1 )
-		begin
-			$display("sl811 doesn't participate in internal int!");
-			$stop;
-		end
-		z.iowr(rstint_port,{tmp[7:4],2'b01,tmp[1:0]});
-		z.iord(rstint_port,tmp);
-		if( tmp[7]!==1'b1 )
-		begin
-			$display("w5300 doesn't participate in internal int!");
-			$stop;
-		end
-		z.iowr(rstint_port,{tmp[7:4],2'b11,tmp[1:0]});
-		z.iord(rstint_port,tmp);
-		if( tmp[7]!==1'b1 )
-		begin
-			$display("both chips doesn't participate in internal int!");
-			$stop;
-		end
-		//
-		z.iowr(rstint_port,{tmp[7],1'b1,tmp[5:0]});
-		@(posedge clk);
-		if( int_n!==1'b0 )
-		begin
-			$display("no int_n on internal int!");
-			$stop;
-		end
-		// remove ints
-		s.set_intrq(1'b0);
-		@(posedge clk);
-		if( int_n!==1'b0 )
-		begin
-			$display("int_n removed after sl811 removed intrq while w5300 didn't!");
-			$stop;
-		end
-		w.set_int_n(1'b1);
-		@(posedge clk);
 		if( int_n!==1'b1 )
 		begin
-			$display("int_n not removed after both chips removed ints!");
+			$display("ext.int asserted after reset!");
 			$stop;
 		end
-		// disable ints
+	endtask
+	
+
+
+
+
+	task test_ints;
+
+		reg [7:0] tmp;
+
+		reg [1:0] ints,intena;
+
+		reg eintena;
+
+		
+		ints = $random>>30;
+
+		intena = $random>>30;
+
+		eintena = $random>>31;
+
+		
+		s.set_intrq(ints[1]);
+		w.set_int_n(~ints[0]);
+
+		@(posedge clk);
+
+
 		z.iord(rstint_port,tmp);
-		z.iowr(rstint_port,{tmp[7],1'b0,tmp[5:4],2'b00,tmp[1:0]});
+		tmp[3:2]=intena;
+		tmp[6]=eintena;
+		z.iowr(rstint_port,tmp);
+
+		
+		z.iord(rstint_port,tmp);
+
+		if( tmp[1]!==ints[1] || tmp[0]!==ints[0] )
+		begin
+			$display("wrong int signals states!");
+			$stop;
+		end
+
+		if( (  (ints&intena) && tmp[7]!==1'b1) ||
+		    ( !(ints&intena) && tmp[7]!==1'b0) )
+		begin
+			$display("wrong internal int state!");
+			$stop;
+		end
+
+		if( tmp[6]!==eintena )
+		begin
+			$display("wrong eintena state!");
+			$stop;
+		end
+
+		if( (eintena && (ints&intena)) ? (int_n!==1'b0) : (int_n!==1'b1) )
+		begin
+			$display("wrong int_n forming!");
+			$stop;
+		end
+
+
+
+
 	endtask
 
 	
 	
+
+
+
 	task test_resets;
 
-		reg[7:0] tmp;
+		reg [7:0] tmp;
+
+		reg [1:0] resets;
+
+
+		
+		resets = $random>>30;
+
+
+		// read-modify-write reset register
+		z.iord(rstint_port,tmp);
+
+		tmp[5:4] = resets[1:0];
+
+		z.iowr(rstint_port,tmp);
+
+		if( s.get_rst_n() !== resets[1] )
+		begin
+			$display("no control of sl811 reset!");
+			$stop;
+		end
+
+		if( w.get_rst_n() !== resets[0] )
+		begin
+			$display("no control of w5300 reset!");
+			$stop;
+		end
+
+	endtask
+	
+
+
+
+	task test_pwon_resets;
+
+		reg [7:0] tmp;
 
 		// test resets state after reset
 		if( w.get_rst_n() !== 1'b0 )
@@ -633,23 +667,31 @@ module tb;
 			$stop;
 		end
 
-		// remove resets. first sl811
-		z.iowr(rstint_port, {tmp[7:6],2'b10,tmp[3:0]} );
-		if( s.get_rst_n() !== 1'b1 )
-		begin
-			$display("sl811 hasn't rst_n=1 after port clear!");
-			$stop;
-		end
-		// then w5300 
-		z.iowr(rstint_port, {tmp[7:6],2'b11,tmp[3:0]} );
-		if( w.get_rst_n() !== 1'b1 )
-		begin
-			$display("w5300 hasn't rst_n=1 port clear!");
-			$stop;
-		end
-
 	endtask
-	
+
+
+
+
+
+
+
+
+
+
+
+	// time marks
+	always
+	begin : timemarks
+
+		int ms;
+
+		ms = ($time/1000000);
+
+		#1000000.0;
+
+		$display("time mark: %d ms",ms);
+	end
+
 
 
 
