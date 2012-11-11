@@ -70,6 +70,14 @@ module w5300
 
 	endfunction
 
+
+	task init_access;
+
+		access_addr = 'bX;
+		access_rnw  = 'bX;
+		wr_data     = 'bX;
+
+	endtask
 	
 	
 	function [9:0] get_addr;

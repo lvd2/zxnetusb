@@ -1,33 +1,46 @@
 onerror {resume}
 quietly WaveActivateNextPane {} 0
-add wave -noupdate -format Logic /tb/rst_n
-add wave -noupdate -format Logic /tb/clk
+add wave -noupdate /tb/rst_n
+add wave -noupdate /tb/clk
 add wave -noupdate -divider <NULL>
-add wave -noupdate -format Literal -radix hexadecimal /tb/a
-add wave -noupdate -format Literal -radix hexadecimal /tb/d
-add wave -noupdate -format Logic /tb/mreq_n
-add wave -noupdate -format Logic /tb/iorq_n
-add wave -noupdate -format Logic /tb/rd_n
-add wave -noupdate -format Logic /tb/wr_n
+add wave -noupdate -radix hexadecimal /tb/a
+add wave -noupdate -radix hexadecimal -childformat {{{/tb/d[7]} -radix hexadecimal} {{/tb/d[6]} -radix hexadecimal} {{/tb/d[5]} -radix hexadecimal} {{/tb/d[4]} -radix hexadecimal} {{/tb/d[3]} -radix hexadecimal} {{/tb/d[2]} -radix hexadecimal} {{/tb/d[1]} -radix hexadecimal} {{/tb/d[0]} -radix hexadecimal}} -subitemconfig {{/tb/d[7]} {-height 15 -radix hexadecimal} {/tb/d[6]} {-height 15 -radix hexadecimal} {/tb/d[5]} {-height 15 -radix hexadecimal} {/tb/d[4]} {-height 15 -radix hexadecimal} {/tb/d[3]} {-height 15 -radix hexadecimal} {/tb/d[2]} {-height 15 -radix hexadecimal} {/tb/d[1]} {-height 15 -radix hexadecimal} {/tb/d[0]} {-height 15 -radix hexadecimal}} /tb/d
+add wave -noupdate /tb/mreq_n
+add wave -noupdate /tb/iorq_n
+add wave -noupdate /tb/rd_n
+add wave -noupdate /tb/wr_n
+add wave -noupdate /tb/int_n
+add wave -noupdate /tb/blkrom
+add wave -noupdate /tb/iorqge
+add wave -noupdate /tb/csrom_n
 add wave -noupdate -divider <NULL>
-add wave -noupdate -format Logic /tb/brd_n
-add wave -noupdate -format Logic /tb/bwr_n
-add wave -noupdate -format Literal -radix hexadecimal /tb/bd
+add wave -noupdate -radix hexadecimal /tb/where_rom
+add wave -noupdate -radix hexadecimal /tb/check_w5300_access/rom
+add wave -noupdate /tb/check_w5300_access/sub_ena
+add wave -noupdate /tb/check_w5300_access/a0_inv
+add wave -noupdate /tb/usb_power
 add wave -noupdate -divider <NULL>
-add wave -noupdate -format Logic /tb/sl811_a0
-add wave -noupdate -format Logic /tb/sl811_cs_n
-add wave -noupdate -format Logic /tb/sl811_intrq
-add wave -noupdate -format Logic /tb/sl811_ms_n
-add wave -noupdate -format Logic /tb/sl811_rst_n
+add wave -noupdate /tb/brd_n
+add wave -noupdate /tb/bwr_n
+add wave -noupdate -radix hexadecimal /tb/bd
 add wave -noupdate -divider <NULL>
-add wave -noupdate -format Literal -radix hexadecimal /tb/w5300_addr
-add wave -noupdate -format Logic /tb/w5300_cs_n
-add wave -noupdate -format Logic /tb/w5300_int_n
-add wave -noupdate -format Logic /tb/w5300_rst_n
+add wave -noupdate /tb/sl811_a0
+add wave -noupdate /tb/sl811_cs_n
+add wave -noupdate /tb/sl811_intrq
+add wave -noupdate /tb/sl811_ms_n
+add wave -noupdate /tb/sl811_rst_n
+add wave -noupdate /tb/s/rd
+add wave -noupdate /tb/s/wr
 add wave -noupdate -divider <NULL>
+add wave -noupdate -radix hexadecimal /tb/w5300_addr
+add wave -noupdate /tb/w5300_cs_n
+add wave -noupdate /tb/w5300_int_n
+add wave -noupdate /tb/w5300_rst_n
+add wave -noupdate /tb/w/rd
+add wave -noupdate /tb/w/wr
 TreeUpdate [SetDefaultTree]
-WaveRestoreCursors {{Cursor 1} {824 ns} 0}
-configure wave -namecolwidth 150
+WaveRestoreCursors {{Cursor 1} {6539055 ns} 0}
+configure wave -namecolwidth 257
 configure wave -valuecolwidth 100
 configure wave -justifyvalue left
 configure wave -signalnamewidth 0
@@ -39,5 +52,6 @@ configure wave -gridoffset 0
 configure wave -gridperiod 70
 configure wave -griddelta 8
 configure wave -timeline 1
+configure wave -timelineunits ns
 update
-WaveRestoreZoom {0 ns} {1 us}
+WaveRestoreZoom {6537895 ns} {6539391 ns}

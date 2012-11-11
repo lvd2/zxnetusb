@@ -70,7 +70,7 @@ module zbus
 
 
 	// sl811 chip select and A0
-	assign sl811_cs_n = !(io_addr_ok && ( !za[15] || (za[15] && za[9:8]==2'b00) ) );
+	assign sl811_cs_n = !(io_addr_ok && ( !za[15] || (za[15] && za[9:8]==2'b00) ) && !ziorq_n );
 	//
 	assign sl811_a0 = ~za[15];
 
