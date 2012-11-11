@@ -29,6 +29,8 @@ module ports
 	output reg        rommap_ena,
 	output reg        w5300_a0inv,
 	output reg        w5300_rst_n,
+	output reg        w5300_ports,
+	output reg  [2:0] w5300_hi,
 
 	//
 	output reg        sl811_ms_n,
@@ -70,13 +72,17 @@ module ports
 		rommap_ena <= 1'b0;
 		
 		w5300_a0inv <= 1'b0;
+		w5300_ports <= 1'b0;
+		w5300_hi    <= 3'd0;
 	end
 	else if( wrena && addr==2'b10 )
 	begin
 		rommap_win <= wrdata[1:0];
-		rommap_ena <= wrdata[2];
+		rommap_ena <= wrdata[2] & (~wrdata[4]);
 		
 		w5300_a0inv <= wrdata[3];
+		w5300_ports <= wrdata[4] & (~wrdata[2]);
+		w5300_hi    <= wrdata[7:5];
 	end
 
 
@@ -99,7 +105,7 @@ module ports
 
 		2'b11: rddata = { internal_int, ena_zxbus_int, sl811_rst_n, w5300_rst_n, ena_sl811_int, ena_w5300_int, sl811_intrq, ~w5300_int_n };
 
-		2'b10: rddata = { 4'bXXXX, w5300_a0inv, rommap_ena, rommap_win[1:0] };
+		2'b10: rddata = { w5300_hi, w5300_ports, w5300_a0inv, rommap_ena, rommap_win[1:0] };
 
 		2'b01: rddata = { 6'bXXXXXX, usb_power, ~sl811_ms_n };
 

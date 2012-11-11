@@ -35,7 +35,8 @@ module zbus
 	output wire        sl811_a0,
 
 	//
-	output wire        w5300_cs_n
+	output wire        w5300_cs_n,
+	input  wire        w5300_ports
 );
 	parameter BASE_ADDR = 8'hAB;
 
@@ -70,7 +71,7 @@ module zbus
 
 
 	// sl811 chip select and A0
-	assign sl811_cs_n = !(io_addr_ok && ( !za[15] || (za[15] && za[9:8]==2'b00) ) && !ziorq_n );
+	assign sl811_cs_n = !( !w5300_ports && io_addr_ok && ( !za[15] || (za[15] && za[9:8]==2'b00) ) && !ziorq_n );
 	//
 	assign sl811_a0 = ~za[15];
 
@@ -79,7 +80,7 @@ module zbus
 	assign mwr = !zmreq_n && !zwr_n && (za[15:14]==rommap_win) && rommap_ena;
 	assign mrd = !zmreq_n && !zrd_n && !zcsrom_n && (za[15:14]==rommap_win) && rommap_ena;
 	//
-	assign w5300_cs_n = ~(mwr | mrd);
+	assign w5300_cs_n = ~(mwr || mrd || ( w5300_ports && io_addr_ok && !za[15] && !ziorq_n ) );
 
 	// block ROM
 	assign zblkrom = (rommap_ena && (za[15:14]==rommap_win)) ? 1'b1 : 1'bZ;

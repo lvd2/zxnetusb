@@ -65,6 +65,8 @@ module top
 	wire       rommap_ena;
 
 	wire       w5300_a0inv;
+	wire       w5300_ports;
+	wire [2:0] w5300_hi;
 
 
 	// zx-bus
@@ -96,7 +98,8 @@ module top
 		.sl811_cs_n(sl811_cs_n),
 		.sl811_a0  (sl811_a0  ),
 		//
-		.w5300_cs_n(w5300_cs_n)
+		.w5300_cs_n (w5300_cs_n ),
+		.w5300_ports(w5300_ports)
 	);
 
 
@@ -106,7 +109,9 @@ module top
 		.za(za),
 
 		.w5300_a0inv(w5300_a0inv),
-		.w5300_addr (w5300_addr )
+		.w5300_addr (w5300_addr ),
+		.w5300_ports(w5300_ports),
+		.w5300_hi   (w5300_hi   )
 	);
 
 
@@ -135,6 +140,8 @@ module top
 		//
 		.w5300_a0inv(w5300_a0inv),
 		.w5300_rst_n(w5300_rst_n),
+		.w5300_ports(w5300_ports),
+		.w5300_hi   (w5300_hi   ),
 		//
 		.sl811_ms_n (sl811_ms_n ),
 		.sl811_rst_n(sl811_rst_n),

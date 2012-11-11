@@ -15,9 +15,6 @@ add wave -noupdate /tb/iorqge
 add wave -noupdate /tb/csrom_n
 add wave -noupdate -divider <NULL>
 add wave -noupdate -radix hexadecimal /tb/where_rom
-add wave -noupdate -radix hexadecimal /tb/check_w5300_access/rom
-add wave -noupdate /tb/check_w5300_access/sub_ena
-add wave -noupdate /tb/check_w5300_access/a0_inv
 add wave -noupdate /tb/usb_power
 add wave -noupdate -divider <NULL>
 add wave -noupdate /tb/brd_n
@@ -31,6 +28,9 @@ add wave -noupdate /tb/sl811_ms_n
 add wave -noupdate /tb/sl811_rst_n
 add wave -noupdate /tb/s/rd
 add wave -noupdate /tb/s/wr
+add wave -noupdate -divider <NULL>
+add wave -noupdate /tb/DUT/ports/w5300_ports
+add wave -noupdate /tb/DUT/ports/w5300_hi
 add wave -noupdate -divider <NULL>
 add wave -noupdate -radix hexadecimal /tb/w5300_addr
 add wave -noupdate /tb/w5300_cs_n
@@ -54,4 +54,4 @@ configure wave -griddelta 8
 configure wave -timeline 1
 configure wave -timelineunits ns
 update
-WaveRestoreZoom {6537895 ns} {6539391 ns}
+WaveRestoreZoom {0 ns} {825 ns}

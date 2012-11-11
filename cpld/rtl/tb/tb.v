@@ -237,12 +237,13 @@ module tb;
 
 		forever // repeat(10000)
 		begin
-			case( $random%5 )
+			case( $random%6 )
 			0: check_sl811_access();
-			1: check_w5300_access();
-			2: test_resets();
-			3: check_sl811_port();
-			4: test_ints(); 
+			1: check_w5300_mem_access();
+			2: check_w5300_port_access();
+			3: test_resets();
+			4: check_sl811_port();
+			5: test_ints(); 
 			endcase
 		end
 
@@ -309,7 +310,70 @@ module tb;
 
 
 
-	task check_w5300_access;
+	task check_w5300_port_access();
+
+		reg [7:0] tmp,rddata,wrdata;
+		reg [9:0] waddr;
+		reg       a0_inv;
+
+		reg [15:0] port;
+
+
+		a0_inv = $random>>31;
+
+		waddr = $random>>22;
+
+
+
+		z.iowr(w5300_port,{waddr[9:7],1'b1,a0_inv,3'd0});
+
+		z.iord(w5300_port,tmp);
+		if( tmp!=={waddr[9:7],1'b1,a0_inv,3'd0} )
+		begin
+			$display("can't set w5300 port!");
+			$stop;
+		end
+		
+		// make access port address
+		port = sl_data;
+		port[14:8] = waddr[6:0];
+
+
+		w.init_access(); // clear access_* to X
+
+
+		if( $random>>31 )
+		begin
+			wrdata = $random>>24;
+			z.iowr(port,wrdata);
+			if( w.get_addr()!==(waddr^a0_inv) ||
+			    w.get_rnw()!==1'b0            ||
+			    w.get_wr_data()!==wrdata      )
+			begin
+				$display("w5300 port write failed!");
+				$stop;
+			end
+		end
+		else
+		begin
+			rddata = $random>>24;
+			w.set_rd_data(rddata);
+			z.iord(port,tmp);
+			if( w.get_addr()!==(waddr^a0_inv) ||
+			    w.get_rnw()!==1'b1            ||
+			    tmp!==rddata                  )
+			begin
+				$display("w5300 port read failed!");
+				$stop;
+			end
+		end
+
+	endtask
+
+
+
+
+	task check_w5300_mem_access;
 
 		reg [7:0] tmp,rddata,wrdata;
 		reg [15:0] memaddr;
@@ -327,7 +391,7 @@ module tb;
 		z.iowr(w5300_port,{4'd0,a0_inv,sub_ena,rom});
 
 		z.iord(w5300_port,tmp);
-		if( tmp[3:0]!=={a0_inv,sub_ena,rom} )
+		if( tmp!=={4'd0,a0_inv,sub_ena,rom} )
 		begin
 			$display("can't set w5300 port!");
 			$stop;
@@ -428,6 +492,15 @@ module tb;
 		reg [15:0] rdport;
 
 
+		// turn off w5300 port access
+		z.iord(w5300_port,tmp);
+		if( tmp[4]!==1'b0 )
+		begin
+			tmp[4]=1'b0;
+			z.iowr(w5300_port,tmp);
+		end
+
+
 		// check address reg
 		wrdata=$random>>24;
 		z.iowr(sl_addr,wrdata);
@@ -445,6 +518,8 @@ module tb;
 			$display("sl811 address read failed!");
 			$stop;
 		end
+
+
 
 		// check data reg
 		rdport=sl_data;
