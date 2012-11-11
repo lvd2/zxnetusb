@@ -134,6 +134,7 @@ module ssz80
 			iorq_n <= 1'b1;
 			rd_n   <= 1'b1;
 
+			@(posedge clk);
 		end
 
 	endtask
@@ -171,6 +172,8 @@ module ssz80
 			wait(wr_n==1'b1); // delta-cycle delay!!!
 
 			oena <= 1'b0;
+			
+			@(posedge clk);
 		end
 
 	endtask

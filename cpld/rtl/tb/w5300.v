@@ -18,6 +18,9 @@ module w5300
 	
 	reg [9:0] access_addr;
 	reg       access_rnw;
+	reg [7:0] rd_data;
+	reg [7:0] wr_data;
+
 	
 	wire rd = ~(cs_n|rd_n);
 	wire wr = ~(cs_n|wr_n);
@@ -32,14 +35,19 @@ module w5300
 
 	always @(negedge rd)
 	begin
-		access_addr = addr;
-		access_rnw  = 1'b1;
+		access_addr <= addr;
+		access_rnw  <= 1'b1;
 	end
 
+	assign d = rd ? rd_data : 8'bZZZZ_ZZZZ;
+	
+	
+	
 	always @(negedge wr)
 	begin
-		access_addr = addr;
-		access_rnw  = 1'b0;
+		access_addr <= addr;
+		access_rnw  <= 1'b0;
+		wr_data     <= d;
 	end
 
 
@@ -61,6 +69,35 @@ module w5300
 		get_rst_n = rst_n;
 
 	endfunction
+
+	
+	
+	function [9:0] get_addr;
+		
+		get_addr = access_addr;
+	
+	endfunction
+	
+	
+	function get_rnw;
+	
+		get_rnw = access_rnw;
+	
+	endfunction
+	
+	
+	function [7:0] get_wr_data;
+		
+		get_wr_data = wr_data;
+	
+	endfunction
+	
+	
+	task set_rd_data( input [7:0] data );
+	
+		rd_data = data;
+	
+	endtask
 
 
 

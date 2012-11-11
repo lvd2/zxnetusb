@@ -1,4 +1,3 @@
-#!/bin/bash
 
 vlog -sv -novopt -incr -f files
 

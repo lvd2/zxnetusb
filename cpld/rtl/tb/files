@@ -1,0 +1,9 @@
+../top.v
+../zbus.v
+../wizmap.v
+../ports.v
+
+tb.v
+ssz80.v
+w5300.v
+sl811.v

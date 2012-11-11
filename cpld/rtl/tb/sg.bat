@@ -1,3 +1,2 @@
-#!/bin/bash
 
 vsim -gui -novopt work.tb

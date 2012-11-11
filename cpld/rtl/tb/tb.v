@@ -46,14 +46,15 @@ module tb;
 	wire       w5300_rst_n;
 	wire       w5300_cs_n;
 	wire       w5300_int_n;
-	wire [3:0] w5300_brdy;
 
 	wire       sl811_rst_n;
 	wire       sl811_a0;
 	wire       sl811_cs_n;
-	wire       sl811_ms;
+	wire       sl811_ms_n;
 	wire       sl811_intrq;
 
+	
+	
 	reg usb_power;
 
 
@@ -153,7 +154,7 @@ module tb;
 
 
 
-	ssz80 ssz80
+	ssz80 z
 	(
 		.clk  (clk  ),
 		.rst_n(rst_n),
@@ -171,7 +172,7 @@ module tb;
 
 
 
-	w5300 w5300
+	w5300 w
 	(
 		.rst_n(w5300_rst_n),
 		.addr (w5300_addr ),
@@ -183,7 +184,7 @@ module tb;
 	);
 
 
-	sl811 sl811
+	sl811 s
 	(
 		.rst_n(sl811_rst_n),
 		.a0   (sl811_a0   ),
@@ -196,12 +197,100 @@ module tb;
 	);
 
 
-
-
-
 	// csrom gen
 	assign csrom_n = (a[15:14]==where_rom[1:0]);
 
+	
+	
+	
+	
+	
+////////////////////////////////////////////////////////////////////////////////	
+////////////////////////////////////////////////////////////////////////////////	
+////////////////////////////////////////////////////////////////////////////////	
+/// here start tests
+
+	initial
+	begin : tests
+	
+		reg [15:0] rstint_port = 16'h83_AB;
+		reg [15:0] w5300_port  = 16'h82_AB;
+		reg [15:0] sl811_port  = 16'h81_AB;
+		reg [15:0] sl_addr     = 16'h80_AB;
+		reg [15:0] sl_data     = 16'h7F_AB;
+	
+		reg [7:0] tmp;
+		reg [7:0] tmp2;
+
+		
+		wait(rst_n===1'b1);
+
+		repeat(10) @(posedge clk);
+	
+	
+
+		// test resets state after reset
+		if( w.get_rst_n() !== 1'b0 )
+		begin
+			$display("w5300 hasn't rst_n=0 after reset!");
+			$stop;
+		end
+		//
+		if( s.get_rst_n() !== 1'b0 )
+		begin
+			$display("sl811 hasn't rst_n=0 after reset!");
+			$stop;
+		end
+
+		// read reset register and check it
+		z.iord(rstint_port,tmp);
+		if( tmp[5:4]!==2'b00 )
+		begin
+			$display("reset bits in #83AB not 0 after reset!");
+			$stop;
+		end
+
+		// remove resets
+		z.iowr(rstint_port, {tmp[7:6],2'b11,tmp[3:0]} );
+		// check whether resets has been removed
+		if( w.get_rst_n() !== 1'b1 )
+		begin
+			$display("w5300 hasn't rst_n=1 port clear!");
+			$stop;
+		end
+		//
+		if( s.get_rst_n() !== 1'b1 )
+		begin
+			$display("sl811 hasn't rst_n=1 after port clear!");
+			$stop;
+		end
+
+		
+
+
+
+
+		
+		
+		$display("all tests passed!");
+		$stop;
+	end
+
+	
+	
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 
 
 
