@@ -86,17 +86,10 @@ module tb;
 	initial
 	begin
 		where_rom = 2'b00;
+
+		usb_power = 1'b0;
 	end
 
-
-
-
-	initial
-	begin
-		wait(rst_n===1'b1);
-		@(posedge clk);
-
-	end
 
 
 

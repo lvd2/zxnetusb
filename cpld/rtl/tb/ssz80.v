@@ -30,6 +30,8 @@ module ssz80
 
 	initial
 	begin
+		a='d0;
+
 		dout = 'd0;
 		oena = 1'b0;
 

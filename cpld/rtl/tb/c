@@ -1,4 +1,4 @@
 #!/bin/bash
 
-vlog -sv -novopt -incr -f files
+vlog -sv -novopt -incr -f files -f testbench
 
