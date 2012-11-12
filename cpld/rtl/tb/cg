@@ -1,4 +1,4 @@
 #!/bin/bash
 
-vlog +define+$1 -sv -novopt -incr -f testbench top.vo max_atoms.v
+vlog +define+$1 -sv -novopt -incr -f testbench top.vo
 
