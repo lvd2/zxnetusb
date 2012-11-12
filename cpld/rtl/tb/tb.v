@@ -32,7 +32,7 @@ module tb;
 	wire [15:0] a;
 	wire [ 7:0] d;
 
-	wire [ 7:0] #1 bd;
+	tri1 [ 7:0] #1 bd;
 
 	wire brd_n, bwr_n;
 

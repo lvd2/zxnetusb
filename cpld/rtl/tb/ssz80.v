@@ -101,10 +101,10 @@ module ssz80
 
 			mreq_n <= 1'b1;
 			wr_n   <= 1'b1;
-			wait(wr_n==1'b1); // delta-cycle delay!!!
-			oena <= 1'b0;
+			//wait(wr_n==1'b1); // delta-cycle delay!!!
 
 			@(posedge clk);
+			oena <= 1'b0;
 		end
 	endtask
 
@@ -175,11 +175,11 @@ module ssz80
 			iorq_n <= 1'b1;
 			wr_n   <= 1'b1;
 
-			wait(wr_n==1'b1); // delta-cycle delay!!!
+			//wait(wr_n==1'b1); // delta-cycle delay!!!
 
-			oena <= 1'b0;
 			
 			@(posedge clk);
+			oena <= 1'b0;
 		end
 
 	endtask
