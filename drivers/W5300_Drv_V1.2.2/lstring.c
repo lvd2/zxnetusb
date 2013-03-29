@@ -204,68 +204,68 @@ void HexDump(char *addr, int len){
 }	// HexDump.
 
 
-void printf(char *fmt, ...){
-
-	int		i;
-	va_list args;
-	char	*s=fmt;
-	char	format[10];		// fmt의 인자가 "%08lx"라면, "08l"를 임시로 기록.
-	
-	va_start(args, fmt);
-	while (*s){
-		if (*s=='%'){
-			s++;
-			// s에서 "%08lx"형식을 가져와 format에 기록. 나중에 출력함수에 넘겨줌.
-			format[0] = '%';
-			for (i=1; i<10;){
-				if (*s=='c' || *s=='d' || *s=='x' || *s=='s' || *s=='%'){
-					format[i++] = *s;
-					format[i] = '\0';
-					break;
-				}
-				else {
-					format[i++] = *s++;
-				}
-			}
-			// "%s", "%c", "%d", "%x"를 찾아 출력할 함수 호출.
-			switch (*s++){
-				case 'c' :
-					PrintChar(format, va_arg(args, int));
-					break;
-				case 'd' :
-					PrintDec(format, va_arg(args, int));
-					break;
-				case 'x' :
-					PrintHex(format, va_arg(args, int));
-					break;
-				case 's' :
-					PrintString(format, va_arg(args, char *));
-					break;
-				case '%' :
-					PrintChar("%c", '%');
-					break;
-			}
-		}
-		else {
-			PrintChar("%c", *s);
-			s++;
-		}
-	}
-	va_end(args);
-	return;
-/*
-	va_list args;
-	static char printf_buf[512];
-	int i;
-
-	va_start(args, fmt);
-	i = vsnprintf(printf_buf, sizeof(printf_buf), fmt, args);
-	va_end(args);
-	PrintString("%s",printf_buf);
-	//return i;
-	return ;
-*/	
-}
+//void printf(char *fmt, ...){
+//
+//	int		i;
+//	va_list args;
+//	char	*s=fmt;
+//	char	format[10];		// fmt의 인자가 "%08lx"라면, "08l"를 임시로 기록.
+//	
+//	va_start(args, fmt);
+//	while (*s){
+//		if (*s=='%'){
+//			s++;
+//			// s에서 "%08lx"형식을 가져와 format에 기록. 나중에 출력함수에 넘겨줌.
+//			format[0] = '%';
+//			for (i=1; i<10;){
+//				if (*s=='c' || *s=='d' || *s=='x' || *s=='s' || *s=='%'){
+//					format[i++] = *s;
+//					format[i] = '\0';
+//					break;
+//				}
+//				else {
+//					format[i++] = *s++;
+//				}
+//			}
+//			// "%s", "%c", "%d", "%x"를 찾아 출력할 함수 호출.
+//			switch (*s++){
+//				case 'c' :
+//					PrintChar(format, va_arg(args, int));
+//					break;
+//				case 'd' :
+//					PrintDec(format, va_arg(args, int));
+//					break;
+//				case 'x' :
+//					PrintHex(format, va_arg(args, int));
+//					break;
+//				case 's' :
+//					PrintString(format, va_arg(args, char *));
+//					break;
+//				case '%' :
+//					PrintChar("%c", '%');
+//					break;
+//			}
+//		}
+//		else {
+//			PrintChar("%c", *s);
+//			s++;
+//		}
+//	}
+//	va_end(args);
+//	return;
+///*
+//	va_list args;
+//	static char printf_buf[512];
+//	int i;
+//
+//	va_start(args, fmt);
+//	i = vsnprintf(printf_buf, sizeof(printf_buf), fmt, args);
+//	va_end(args);
+//	PrintString("%s",printf_buf);
+//	//return i;
+//	return ;
+//*/	
+//}
 
 
 void PrintChar(char *fmt, char c){

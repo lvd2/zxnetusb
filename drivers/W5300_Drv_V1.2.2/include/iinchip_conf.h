@@ -9,6 +9,9 @@
  * and code dependency of a target host system. \n \n
  */
 
+#include <avr/io.h>
+
+#define LITTLE_ENDIAN	//  This must be defined if system is little-endian alignment
  
 //#define __DEF_IINCHIP_DBG__      /**< Involves debug code */
 //#define __DEF_IINCHIP_INT__    /**< Involves ISR routine */
@@ -32,7 +35,7 @@
 /**
  * Define the base address of W5300 on your target host system.
  */
-#define __DEF_IINCHIP_MAP_BASE__ 0x08000000
+#define __DEF_IINCHIP_MAP_BASE__ 0x8000
 
 #if (__DEF_IINCHIP_ADDRESS_MODE__ == __DEF_IINCHIP_DIRECT_MODE__)
    #define COMMON_REG_BASE   __DEF_IINCHIP_MAP_BASE__          /**< The base address of COMMON_REG */
@@ -45,13 +48,7 @@
 #define SOCKET_REG_SIZE    0x40     // SOCKET Regsiter Count per Channel
 
 
-
-
 #define __DEF_C__                  0   /**< Using C code */
-#define __DEF_MCU_DEP_INLINE_ASM__ 1   /**< Using inline ASM code */
-#define __DEF_MCU_DEP_DMA__        2   /**< Using DMA controller */
-
-
 
 /**
  * It define how to access to the intenal TX/RX memory of W5300.

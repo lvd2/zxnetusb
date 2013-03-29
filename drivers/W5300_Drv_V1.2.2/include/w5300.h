@@ -26,6 +26,10 @@
  *                                   Add IINCHIP_CRITICAL_SECTION_ENTER() & IINCHIP_CRITICAL_SECTION_EXIT() to wiz_read_buf() and wiz_write_buf().
  *                                   Modify the description of \ref Sn_SSR and \ref close().</td>
  * ----------  -------  -----------  ---------------------------- 
+ * 15/03/2012  1.2.1    Dongeun      Solution of ARP problem
+ *                                   Add ApplySubnet() & ClearSubnet()
+ *                                   Modify getSUBR() & setSUBR()
+ * ----------  -------  -----------  ---------------------------- 
  */
 
  
@@ -60,7 +64,7 @@
  */
 #define IR              (COMMON_REG_BASE + 0x02)
 #define IR0             IR
-#define IR1             (IR + 1);
+#define IR1             (IR + 1)
 
 /**
  *  Interrupt mask register
@@ -239,7 +243,7 @@
  */
 #define UPORTR          (COMMON_REG_BASE + 0x4C)
 #define UPORTR0         UPORTR
-#define UPORTR1         (UPORT + 1)
+#define UPORTR1         (UPORTR + 1)
 
 
 
@@ -272,6 +276,7 @@
  *  W5300 identification register
  */
 #define IDR             (COMMON_REG_BASE + 0xFE)
+#define IDR0            (COMMON_REG_BASE + 0xFE)
 #define IDR1            (IDR + 1)
 
 
@@ -343,7 +348,7 @@
 #define Sn_DIPR0(n)     Sn_DIPR(n)
 #define Sn_DIPR1(n)     (Sn_DIPR(n)+1)
 #define Sn_DIPR2(n)     (Sn_DIPR(n)+2)
-#define Sn_DIPR3(n)     (Sn_DIPR(cnnh)+3)
+#define Sn_DIPR3(n)     (Sn_DIPR(n)+3)
 
 /**
  *  SOCKETn maximum segment size register
@@ -356,11 +361,12 @@
  *  SOCKETn protocol of IP header field register
  */
 #define Sn_PROTOR(n)		(SOCKET_REG_BASE + n * SOCKET_REG_SIZE + 0x1A)
+#define Sn_PROTOR0(n)		Sn_PROTOR(n)
+#define Sn_PROTOR1(n)   (Sn_PROTOR(n)+1)
 /**
  *  SOCKETn keep alive timer register
  */
 #define Sn_KPALVTR(n)   Sn_PROTOR(n)
-#define Sn_PROTOR1(n)   (Sn_PROTOR(n)+1)
 
 /**
  *  SOCKETn IP type of service(TOS) register
@@ -414,15 +420,15 @@
  *  SOCKETn TX FIFO register
  */
 #define Sn_TX_FIFOR(n)     (SOCKET_REG_BASE + n * SOCKET_REG_SIZE + 0x2E)
-#define Sn_TX_FIFOR0(n)    Sn_TX_FIFO(n)
-#define Sn_TX_FIFOR1(n)    (Sn_TX_FIFO(n) + 1)
+#define Sn_TX_FIFOR0(n)    Sn_TX_FIFOR(n)
+#define Sn_TX_FIFOR1(n)    (Sn_TX_FIFOR(n) + 1)
 
 /**
  *  SOCKET n RX FIFO register
  */
 #define Sn_RX_FIFOR(n)     (SOCKET_REG_BASE + n * SOCKET_REG_SIZE + 0x30)
-#define Sn_RX_FIFOR0(n)    Sn_RX_FIFO(n)
-#define Sn_RX_FIFOR1(n)    (Sn_RX_FIFO(n) + 1)
+#define Sn_RX_FIFOR0(n)    Sn_RX_FIFOR(n)
+#define Sn_RX_FIFOR1(n)    (Sn_RX_FIFOR(n) + 1)
 
 
 //#define Sn_TX_SADR(n)      (SOCKET_REG_BASE + n * SOCKET_REG_SIZE + 0x32)
@@ -574,12 +580,12 @@
 /**
  * It reads a value from a register
  */
-uint16   IINCHIP_READ(uint32 addr);
+uint8 IINCHIP_READ(uint16 addr);
 
 /**
  * It writes a value to a register
  */
-void     IINCHIP_WRITE(uint32 addr,uint16 data);
+void     IINCHIP_WRITE(uint16 addr,uint8 data);
 
 /** 
  * It gets MR value.
@@ -783,7 +789,7 @@ uint8    getSn_CR(SOCKET s);
 /**
  *  It sets Sn_CR value.
  */
-void     setSn_CR(SOCKET s, uint16 com);
+void     setSn_CR(SOCKET s, uint8 com);
 
 /**
  *  It gets Sn_IMR value.

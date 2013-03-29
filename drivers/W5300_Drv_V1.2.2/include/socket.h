@@ -27,6 +27,12 @@
  * 08/08/2008  1.2.0    MidnightCow  Refer to M_08082008.
  *                                   Modify close(). 
  * ----------  -------  -----------  ----------------------------  
+ * 15/03/2012  1.2.1    Dongeun      Solution of ARP problem
+ *                                   Modify connect() & sendto()
+ * ----------  -------  -----------  ----------------------------  
+ * 12/07/2012  1.2.2    Dongeun      Solution of ARP problem
+ *                                   Modify connect() & sendto()
+ * ----------  -------  -----------  ----------------------------  
  */
 #include "types.h"
 #include "w5300.h"
@@ -80,6 +86,7 @@ uint32   sendto(SOCKET s, uint8 * buf, uint32 len, uint8 * addr, uint16 port);
  * It receives UDP, IPRAW, or MACRAW data
  */
 uint32   recvfrom(SOCKET s, uint8 * buf, uint32 len, uint8 * addr, uint16  *port);
+
 
 #endif
 /* _SOCKET_H_ */
