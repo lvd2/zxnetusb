@@ -87,8 +87,8 @@ module ports
 
 
 	// wr #81AB
-	always @(posedge wrstb_n, negedge sl811_rst_n)
-	if( !sl811_rst_n )
+	always @(posedge wrstb_n, negedge rst_n)
+	if( !rst_n )
 	begin
 		sl811_ms_n  <= 1'b0;
 	end
