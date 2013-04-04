@@ -45,45 +45,35 @@ set_global_assignment -name FITTER_EFFORT "STANDARD FIT"
 set_global_assignment -name SLOW_SLEW_RATE ON
 set_global_assignment -name AUTO_TURBO_BIT OFF
 
-#set_location_assignment PIN_6  -to usb_power
-#set_location_assignment PIN_8  -to sl811_cs_n
-#set_location_assignment PIN_9  -to sl811_a0
-#set_location_assignment PIN_10 -to sl811_ms
-#set_location_assignment PIN_12 -to sl811_intrq
-#set_location_assignment PIN_13 -to sl811_rst_n
-#set_location_assignment PIN_14 -to w5300_rst_n
-#set_location_assignment PIN_16 -to w5300_int_n
-#set_location_assignment PIN_17 -to w5300_cs_n
-#set_location_assignment PIN_19 -to brd_n
-#set_location_assignment PIN_20 -to bwr_n
-#set_location_assignment PIN_21 -to w5300_addr[0]
-#set_location_assignment PIN_23 -to w5300_addr[1]
-#set_location_assignment PIN_25 -to w5300_addr[2]
-#set_location_assignment PIN_29 -to w5300_addr[3]
-#set_location_assignment PIN_30 -to w5300_addr[4]
-#set_location_assignment PIN_31 -to w5300_addr[5]
-#set_location_assignment PIN_32 -to w5300_addr[6]
-#set_location_assignment PIN_35 -to w5300_addr[7]
-#set_location_assignment PIN_36 -to w5300_addr[8]
-#set_location_assignment PIN_37 -to w5300_addr[9]
-#set_location_assignment PIN_40 -to bd[0]
-#set_location_assignment PIN_41 -to bd[1]
-#set_location_assignment PIN_42 -to bd[2]
-#set_location_assignment PIN_44 -to bd[3]
-#set_location_assignment PIN_45 -to bd[4]
-#set_location_assignment PIN_46 -to bd[5]
-#set_location_assignment PIN_47 -to bd[6]
-#set_location_assignment PIN_48 -to bd[7]
-
-set_location_assignment PIN_6 -to bd[0]
-set_location_assignment PIN_8 -to bd[1]
-set_location_assignment PIN_9 -to bd[2]
-set_location_assignment PIN_10 -to bd[3]
-set_location_assignment PIN_12 -to bd[4]
-set_location_assignment PIN_13 -to bd[5]
-set_location_assignment PIN_14 -to bd[6]
-set_location_assignment PIN_16 -to bd[7]
-
+#set_location_assignment PIN_6   -to 
+#set_location_assignment PIN_8   -to 
+#set_location_assignment PIN_9   -to 
+#set_location_assignment PIN_10  -to 
+#set_location_assignment PIN_12  -to 
+#set_location_assignment PIN_13  -to 
+#set_location_assignment PIN_14  -to 
+#set_location_assignment PIN_16  -to 
+#set_location_assignment PIN_17  -to 
+#set_location_assignment PIN_19  -to 
+#set_location_assignment PIN_20  -to 
+#set_location_assignment PIN_21  -to 
+#set_location_assignment PIN_23  -to 
+#set_location_assignment PIN_25  -to 
+#set_location_assignment PIN_29  -to 
+#set_location_assignment PIN_30  -to 
+#set_location_assignment PIN_31  -to 
+#set_location_assignment PIN_32  -to 
+#set_location_assignment PIN_35  -to 
+#set_location_assignment PIN_36  -to 
+#set_location_assignment PIN_37  -to 
+#set_location_assignment PIN_40  -to 
+#set_location_assignment PIN_41  -to 
+#set_location_assignment PIN_42  -to 
+#set_location_assignment PIN_44  -to 
+#set_location_assignment PIN_45  -to 
+#set_location_assignment PIN_46  -to 
+#set_location_assignment PIN_47  -to 
+#set_location_assignment PIN_48  -to 
 set_location_assignment PIN_52 -to za[15]
 set_location_assignment PIN_54 -to za[14]
 set_location_assignment PIN_56 -to za[13]
@@ -189,4 +179,32 @@ set_global_assignment -name EDA_MAP_ILLEGAL_CHARACTERS ON -section_id eda_simula
 set_global_assignment -name EDA_MAINTAIN_DESIGN_HIERARCHY ON -section_id eda_simulation
 set_global_assignment -name EDA_SETUP_HOLD_DETECTION_INPUT_REGISTERS_BIDIR_PINS_DISABLED ON -section_id eda_simulation
 
-set_global_assignment -name OPTIMIZE_IOC_REGISTER_PLACEMENT_FOR_TIMING OFF
+set_location_assignment PIN_20 -to bd[0]
+set_location_assignment PIN_6 -to w5300_addr[6]
+set_location_assignment PIN_16 -to bd[5]
+set_location_assignment PIN_46 -to w5300_cs_n
+set_location_assignment PIN_23 -to w5300_addr[2]
+set_location_assignment PIN_29 -to bd[1]
+set_location_assignment PIN_41 -to sl811_cs_n
+set_location_assignment PIN_14 -to w5300_addr[7]
+set_location_assignment PIN_13 -to bd[6]
+set_location_assignment PIN_47 -to w5300_int_n
+set_location_assignment PIN_21 -to w5300_addr[3]
+set_location_assignment PIN_37 -to bd[2]
+set_location_assignment PIN_9 -to sl811_a0
+set_location_assignment PIN_42 -to brd_n
+set_location_assignment PIN_25 -to w5300_addr[8]
+set_location_assignment PIN_48 -to bd[7]
+set_location_assignment PIN_8 -to sl811_rst_n
+set_location_assignment PIN_31 -to w5300_addr[4]
+set_location_assignment PIN_40 -to bd[3]
+set_location_assignment PIN_44 -to usb_power
+set_location_assignment PIN_36 -to bwr_n
+set_location_assignment PIN_17 -to w5300_addr[9]
+set_location_assignment PIN_45 -to w5300_addr[0]
+set_location_assignment PIN_30 -to sl811_intrq
+set_location_assignment PIN_19 -to w5300_addr[5]
+set_location_assignment PIN_32 -to bd[4]
+set_location_assignment PIN_10 -to w5300_rst_n
+set_location_assignment PIN_35 -to w5300_addr[1]
+set_location_assignment PIN_12 -to sl811_ms_n
