@@ -1,4 +1,5 @@
 Revision A: initial
 
-TODO:
-- Выдвинуть ETHERNET разъем наружу на 5мм.
+Revision B:
+- Исправлено RJ45 element.
+- ПОдвинут USB разъем ровно по краю платы.
