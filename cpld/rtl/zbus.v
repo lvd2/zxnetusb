@@ -41,6 +41,10 @@ module zbus
 	parameter BASE_ADDR = 8'hAB;
 
 
+	wire ziorq_n_lcell;
+	wire zrd_n_lcell;
+	wire zn1,zn2,zn3;
+
 
 	wire io_addr_ok;
 
@@ -68,10 +72,14 @@ module zbus
 	assign ports_wrena   = io_addr_ok && za[15];
 	assign ports_wrstb_n = ziorq_n | zwr_n;
 
+	lcell lcell1(ziorq_n, zn1);
+	lcell lcell2(zn1, zn2);
+	lcell lcell3(zn2, zn3);
+	lcell lcelln(zn3, ziorq_n_lcell);
 
 
 	// sl811 chip select and A0
-	assign sl811_cs_n = !( !w5300_ports && io_addr_ok && ( !za[15] || (za[15] && za[9:8]==2'b00) ) && !ziorq_n );
+	assign sl811_cs_n = !( !w5300_ports && io_addr_ok && ( !za[15] || (za[15] && za[9:8]==2'b00) ) && (!ziorq_n || !ziorq_n_lcell) );
 	//
 	assign sl811_a0 = ~za[15];
 

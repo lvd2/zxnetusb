@@ -69,6 +69,12 @@ module top
 	wire [2:0] w5300_hi;
 
 
+	wire zrd_n_lcell;
+	wire zn2;
+
+
+
+
 	// zx-bus
 	zbus zbus
 	(
@@ -149,9 +155,12 @@ module top
 		.usb_power(usb_power)
 	);
 
+	lcell lcell3(zrd_n, zn2);
+//	lcell lcell4(zn2, zrd_n_lcell);
+	assign zrd_n_lcell=zn2;
 
 	// buffered RD_N and WR_N
-	assign brd_n = zrd_n;
+	assign brd_n = zrd_n & zrd_n_lcell;
 	assign bwr_n = zwr_n;
 
 
