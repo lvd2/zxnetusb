@@ -70,6 +70,7 @@ module top
 
 
 	wire zrd_n_lcell;
+	wire zn1;
 	wire zn2;
 
 
@@ -155,8 +156,8 @@ module top
 		.usb_power(usb_power)
 	);
 
-	lcell lcell3(zrd_n, zn2);
-//	lcell lcell4(zn2, zrd_n_lcell);
+	lcell lcell3(zrd_n, zn1);
+	lcell lcell4(zn1, zn2);
 	assign zrd_n_lcell=zn2;
 
 	// buffered RD_N and WR_N
