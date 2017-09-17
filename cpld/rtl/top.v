@@ -21,7 +21,7 @@ module top
 	output wire        zblkrom,
 	input  wire        zcsrom_n,
 	input  wire        zrst_n,
-	output wire        zint_n,
+	input  wire        fclk,
 
 	// buffered RD_N and WR_N for chips
 	output wire        brd_n,
@@ -50,11 +50,6 @@ module top
 );
 
 
-	wire ena_w5300_int;
-	wire ena_sl811_int;
-	wire ena_zxbus_int;
-	wire internal_int;
-
 	wire [7:0] ports_wrdata;
 	wire [7:0] ports_rddata;
 	wire [1:0] ports_addr;
@@ -72,6 +67,7 @@ module top
 	// zx-bus
 	zbus zbus
 	(
+		.fclk(fclk),
 		.za(za),
 		.zd(zd),
 		//
@@ -126,14 +122,9 @@ module top
 		.wrdata (ports_wrdata ),
 		.rddata (ports_rddata ),
 		//
-		.ena_w5300_int(ena_w5300_int),
-		.ena_sl811_int(ena_sl811_int),
-		.ena_zxbus_int(ena_zxbus_int),
 		//
 		.w5300_int_n(w5300_int_n),
 		.sl811_intrq(sl811_intrq),
-		//
-		.internal_int(internal_int),
 		//
 		.rommap_win(rommap_win),
 		.rommap_ena(rommap_ena),
@@ -155,13 +146,7 @@ module top
 	assign bwr_n = zwr_n;
 
 
-
-
-	// interrupt generation
-	assign internal_int = (ena_w5300_int & (~w5300_int_n)) |
-	                      (ena_sl811_int &   sl811_intrq ) ;
 	//
-	assign zint_n = (internal_int & ena_zxbus_int) ? 1'b0 : 1'bZ;
 
 
 endmodule

@@ -18,12 +18,8 @@ module ports
 
 
 	// inputs and outputs
-	output reg        ena_w5300_int,
-	output reg        ena_sl811_int,
-	output reg        ena_zxbus_int,
 	input  wire       w5300_int_n,
 	input  wire       sl811_intrq,
-	input  wire       internal_int,
 	//
 	output reg  [1:0] rommap_win,
 	output reg        rommap_ena,
@@ -46,19 +42,11 @@ module ports
 	always @(posedge wrstb_n, negedge rst_n)
 	if( !rst_n )
 	begin
-		ena_w5300_int <= 1'b0;
-		ena_sl811_int <= 1'b0;
-		ena_zxbus_int <= 1'b0;
 
-		w5300_rst_n <= 1'b0;
-		sl811_rst_n <= 1'b0;
+		w5300_rst_n <= 1'b0;		sl811_rst_n <= 1'b0;
 	end
 	else if( wrena && addr==2'b11 )
 	begin
-		ena_w5300_int <= wrdata[2];
-		ena_sl811_int <= wrdata[3];
-		ena_zxbus_int <= wrdata[6];
-
 		w5300_rst_n <= wrdata[4];
 		sl811_rst_n <= wrdata[5];
 	end
@@ -103,7 +91,7 @@ module ports
 	always @*
 	case(addr)
 
-		2'b11: rddata = { internal_int, ena_zxbus_int, sl811_rst_n, w5300_rst_n, ena_sl811_int, ena_w5300_int, sl811_intrq, ~w5300_int_n };
+		2'b11: rddata = { 1'bX, 1'bX, sl811_rst_n, w5300_rst_n, 1'bX, 1'bX, sl811_intrq, ~w5300_int_n };
 
 		2'b10: rddata = { w5300_hi, w5300_ports, w5300_a0inv, rommap_ena, rommap_win[1:0] };
 
