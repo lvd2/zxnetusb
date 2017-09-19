@@ -5,7 +5,10 @@
 
 module zbus
 (
+`ifdef CLOCKED_FILTER
 	input  wire        fclk,
+	input  wire        bwr_n,
+`endif
 	input  wire [15:0] za,
 	inout  wire [ 7:0] zd,
 	//
@@ -52,6 +55,16 @@ module zbus
 	wire ena_dout;
 
 
+
+`ifdef CLOCKED_FILTER
+	reg pre_sl811_cs_n;
+	reg pre_w5300_cs_n;
+`endif
+
+
+
+
+
 	// addr decode
 	assign io_addr_ok = (za[7:0]==BASE_ADDR);
 
@@ -72,10 +85,16 @@ module zbus
 
 
 	// sl811 chip select and A0
+`ifdef CLOCKED_FILTER
 	always @(posedge fclk)
 	begin
-		sl811_cs_n <= !( !w5300_ports && io_addr_ok && ( !za[15] || (za[15] && za[9:8]==2'b00) ) && !ziorq_n );
+		pre_sl811_cs_n <= !( !w5300_ports && io_addr_ok && ( !za[15] || (za[15] && za[9:8]==2'b00) ) && !ziorq_n );
+		sl811_cs_n <= pre_sl811_cs_n;
 	end
+`else
+	always @*
+		sl811_cs_n = !( !w5300_ports && io_addr_ok && ( !za[15] || (za[15] && za[9:8]==2'b00) ) && !ziorq_n );
+`endif
 
 	//
 	assign sl811_a0 = ~za[15];
@@ -85,11 +104,16 @@ module zbus
 	assign mwr = !zmreq_n && !zwr_n && (za[15:14]==rommap_win) && rommap_ena;
 	assign mrd = !zmreq_n && !zrd_n && !zcsrom_n && (za[15:14]==rommap_win) && rommap_ena;
 	//
-	
+`ifdef CLOCKED_FILTER	
 	always @(posedge fclk)
 	begin
-		w5300_cs_n <= ~(mwr || mrd || ( w5300_ports && io_addr_ok && !za[15] && !ziorq_n ) );
+		pre_w5300_cs_n <= ~(mwr || mrd || ( w5300_ports && io_addr_ok && !za[15] && !ziorq_n ) );
+		w5300_cs_n <= pre_w5300_cs_n;
 	end
+`else
+	always @*
+		w5300_cs_n = ~(mwr || mrd || ( w5300_ports && io_addr_ok && !za[15] && !ziorq_n ) );
+`endif
 
 	// block ROM
 	assign zblkrom = (rommap_ena && (za[15:14]==rommap_win)) ? 1'b1 : 1'bZ;
@@ -97,7 +121,11 @@ module zbus
 
 
 	assign ena_dbuf = (~sl811_cs_n) | (~w5300_cs_n);
+`ifdef CLOCKED_FILTER
+	assign ena_din  = ~bwr_n;
+`else
 	assign ena_din  = ~zwr_n;
+`endif
 	assign ena_dout = ~zrd_n;
 
 

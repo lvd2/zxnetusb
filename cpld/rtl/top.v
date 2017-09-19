@@ -21,11 +21,16 @@ module top
 	output wire        zblkrom,
 	input  wire        zcsrom_n,
 	input  wire        zrst_n,
+`ifndef NO_INTERRUPTS
+	output wire        zint_n,
+`endif
+`ifdef  CLOCKED_FILTER
 	input  wire        fclk,
+`endif
 
 	// buffered RD_N and WR_N for chips
-	output wire        brd_n,
-	output wire        bwr_n,
+	output reg         brd_n,
+	output reg         bwr_n,
 
 
 	// w5300 Ethernet chip
@@ -50,6 +55,27 @@ module top
 );
 
 
+
+	// CLOCKED_FILTER for brd/bwr:
+	// just resync for brd, resync + 6ck max for bwr
+`ifdef CLOCKED_FILTER
+	reg pre_brd_n;
+
+	reg bwr_n_r;
+	reg bwr_n_rr;
+
+	reg [4:0] shreg;
+`endif
+
+
+
+`ifndef NO_INTERRUPTS
+	wire ena_w5300_int;
+	wire ena_sl811_int;
+	wire ena_zxbus_int;
+	wire internal_int;
+`endif
+
 	wire [7:0] ports_wrdata;
 	wire [7:0] ports_rddata;
 	wire [1:0] ports_addr;
@@ -67,7 +93,10 @@ module top
 	// zx-bus
 	zbus zbus
 	(
+`ifdef CLOCKED_FILTER
 		.fclk(fclk),
+		.bwr_n(bwr_n),
+`endif
 		.za(za),
 		.zd(zd),
 		//
@@ -122,9 +151,18 @@ module top
 		.wrdata (ports_wrdata ),
 		.rddata (ports_rddata ),
 		//
+`ifndef NO_INTERRUPTS
+		.ena_w5300_int(ena_w5300_int),
+		.ena_sl811_int(ena_sl811_int),
+		.ena_zxbus_int(ena_zxbus_int),
+`endif
 		//
 		.w5300_int_n(w5300_int_n),
 		.sl811_intrq(sl811_intrq),
+		//
+`ifndef NO_INTERRUPTS
+		.internal_int(internal_int),
+`endif
 		//
 		.rommap_win(rommap_win),
 		.rommap_ena(rommap_ena),
@@ -141,12 +179,40 @@ module top
 	);
 
 
+`ifdef CLOCKED_FILTER
+	// brd
+	always @(posedge fclk)
+	begin
+		pre_brd_n <= zrd_n;
+		brd_n     <= pre_brd_n;
+	end
+	// bwr
+	always @(posedge fclk)
+	begin
+		bwr_n_r  <= zwr_n;
+		bwr_n_rr <= bwr_n_r;
+		//
+		if( bwr_n_rr )
+			shreg <= 5'b1_1111;
+		else
+			shreg <= {shreg[3:0],1'b0};
+		//
+		bwr_n <= bwr_n_r || !shreg;
+	end
+`else
 	// buffered RD_N and WR_N
-	assign brd_n = zrd_n;
-	assign bwr_n = zwr_n;
+	always @* brd_n = zrd_n;
+	always @* bwr_n = zwr_n;
+`endif
 
 
-	//
+`ifndef NO_INTERRUPTS
+	// interrupt generation
+	assign internal_int = (ena_w5300_int & (~w5300_int_n)) |
+	                      (ena_sl811_int &   sl811_intrq ) ;
+ 	//
+	assign zint_n = (internal_int & ena_zxbus_int) ? 1'b0 : 1'bZ;
+`endif
 
 
 endmodule

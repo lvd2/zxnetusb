@@ -6,14 +6,21 @@
 
 `timescale 1ns/1ns
 
-// CPU at 14MHz
-`define HALF_CPU_PERIOD (35)
+//// CPU at 14MHz
+//`define HALF_CPU_PERIOD (35)
 
+// CPU at 7MHz
+`define HALF_CPU_PERIOD (70)
+
+// filter clock
+`define HALF_FCLK_PERIOD (21)
 
 module tb;
 
 	reg rst_n;
 	reg clk;
+
+	reg fclk;
 
 
 	tri1 iorq_n,
@@ -63,6 +70,14 @@ module tb;
 
 
 
+	// filter clock
+	initial
+	begin
+		fclk = 1'b1;
+
+		forever #`HALF_FCLK_PERIOD fclk = ~fclk;
+	end
+
 
 	initial
 	begin
@@ -99,6 +114,9 @@ module tb;
 
 	top DUT
 	(
+`ifdef CLOCKED_FILTER
+		.fclk(fclk),
+`endif
 		.za(a),
 		.zd(d),
 
@@ -352,6 +370,7 @@ module tb;
 			rddata = $random>>24;
 			w.set_rd_data(rddata);
 			z.iord(port,tmp);
+			@(negedge clk);
 			if( w.get_addr()!==(waddr^a0_inv) ||
 			    w.get_rnw()!==1'b1            ||
 			    tmp!==rddata                  )
@@ -438,6 +457,7 @@ module tb;
 			rddata = $random>>24;
 			w.set_rd_data(rddata);
 			z.memrd(memaddr,tmp);
+			@(negedge clk);
 			if( where_rom==rom && sub_ena )
 			begin
 				if( w.get_addr()!==(mk_w5300_addr(memaddr[13:0])^a0_inv) ||
@@ -506,6 +526,7 @@ module tb;
 		rddata=$random>>24;
 		s.set_rd_data(rddata);
 		z.iord(sl_addr,tmp);
+		@(negedge clk);
 		if( s.get_rnw()!==1'b1 || s.get_addr()!==1'b0 || tmp!==rddata )
 		begin
 			$display("sl811 address read failed!");
@@ -528,6 +549,7 @@ module tb;
 		rddata=$random>>24;
 		s.set_rd_data(rddata);
 		z.iord(rdport,tmp);
+		@(negedge clk);
 		if( s.get_rnw()!==1'b1 || s.get_addr()!==1'b1 || tmp!==rddata )
 		begin
 			$display("sl811 data read failed!");
