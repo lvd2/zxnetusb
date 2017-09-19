@@ -550,8 +550,8 @@ module tb;
 		z.iowr(sl811_port,ms);
 
 		@(posedge clk);
-		if( (s.get_rst_n()!==1'b0 && s.get_ms()!==ms   ) ||
-		    (s.get_rst_n()!==1'b1 && s.get_ms()!==1'b1 ) )
+		if( (rst_n===1'b1 && s.get_ms()!==ms   ) ||
+		    (rst_n===1'b0 && s.get_ms()!==1'b1 ) )
 		begin
 			$display("sl811_ms_n behaves wrong!");
 			$stop;
