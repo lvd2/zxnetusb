@@ -7,10 +7,10 @@
 `timescale 1ns/1ns
 
 //// CPU at 14MHz
-//`define HALF_CPU_PERIOD (35)
+`define HALF_CPU_PERIOD (35)
 
 // CPU at 7MHz
-`define HALF_CPU_PERIOD (70)
+//`define HALF_CPU_PERIOD (70)
 
 // filter clock
 `define HALF_FCLK_PERIOD (21)
