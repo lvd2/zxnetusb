@@ -4,7 +4,7 @@
 // testbench
 
 
-`timescale 1ns/1ns
+`timescale 1ns/100ps
 
 //// CPU at 14MHz
 `define HALF_CPU_PERIOD (35)
@@ -13,7 +13,7 @@
 //`define HALF_CPU_PERIOD (70)
 
 // filter clock
-`define HALF_FCLK_PERIOD (21)
+`define HALF_FCLK_PERIOD (20.7)
 
 module tb;
 
