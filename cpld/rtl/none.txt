@@ -1,0 +1,18 @@
+clk=48mhz
+cpu=3.5..14mhz (nowait)
+
+'start access' signal -- max 4tc after combinatorial read/write from host
+
+->D->D->D\
+      |  |
+      \--L->start access
+old------^
+state
+
+access time for both sl811 and w5300 -- 5tc
+
+
+READ: via latch, transparent during access time, then latches read data (if CPU cycle continues)
+
+WRITE: via latch, data latched from CPU early, shown to the peripherals for the 5 tc
+
