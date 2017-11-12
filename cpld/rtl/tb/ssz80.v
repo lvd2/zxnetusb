@@ -94,9 +94,8 @@ module ssz80
 			@(negedge clk);
 
 			mreq_n <= 1'b0;
-			wr_n   <= 1'b0;
-
 			@(negedge clk);
+			wr_n   <= 1'b0;
 			@(negedge clk);
 
 			mreq_n <= 1'b1;

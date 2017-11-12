@@ -5,6 +5,10 @@
 
 module top
 (
+	input  wire        fclk, // 48MHz clock
+	
+	output reg         usb_clk, // 12MHz clock for USB chip (sl811)
+	
 	// zxbus
 	input  wire [15:0] za,
 	inout  wire [ 7:0] zd,
@@ -21,16 +25,12 @@ module top
 	output wire        zblkrom,
 	input  wire        zcsrom_n,
 	input  wire        zrst_n,
-`ifndef NO_INTERRUPTS
 	output wire        zint_n,
-`endif
-`ifdef  CLOCKED_FILTER
-	input  wire        fclk,
-`endif
+
 
 	// buffered RD_N and WR_N for chips
-	output reg         brd_n,
-	output reg         bwr_n,
+	output wire        brd_n,
+	output wire        bwr_n,
 
 
 	// w5300 Ethernet chip
@@ -55,26 +55,24 @@ module top
 );
 
 
+	reg usb_ckreg; // for simulation
+
 
 	// CLOCKED_FILTER for brd/bwr:
 	// just resync for brd, resync + 6ck max for bwr
-`ifdef CLOCKED_FILTER
 	reg pre_brd_n;
 
 	reg bwr_n_r;
 	reg bwr_n_rr;
 
 	reg [4:0] shreg;
-`endif
 
 
 
-`ifndef NO_INTERRUPTS
 	wire ena_w5300_int;
 	wire ena_sl811_int;
 	wire ena_zxbus_int;
 	wire internal_int;
-`endif
 
 	wire [7:0] ports_wrdata;
 	wire [7:0] ports_rddata;
@@ -89,14 +87,31 @@ module top
 	wire       w5300_ports;
 	wire [2:0] w5300_hi;
 
+	wire [9:0] pre_w5300_addr;
+
+
+
+	// USB chip clock
+	initial // for simulation
+	begin
+		usb_ckreg = 1'b0;
+		usb_clk   = 1'b0;
+	end
+	//
+	always @(posedge fclk)
+	begin
+		usb_ckreg <=  usb_clk;
+		usb_clk   <= ~usb_ckreg;
+	end
+
+
+
 
 	// zx-bus
 	zbus zbus
 	(
-`ifdef CLOCKED_FILTER
 		.fclk(fclk),
-		.bwr_n(bwr_n),
-`endif
+
 		.za(za),
 		.zd(zd),
 		//
@@ -124,7 +139,13 @@ module top
 		.sl811_a0  (sl811_a0  ),
 		//
 		.w5300_cs_n (w5300_cs_n ),
-		.w5300_ports(w5300_ports)
+		.w5300_ports(w5300_ports),
+		//
+		.async_w5300_addr(pre_w5300_addr),
+		.w5300_addr      (w5300_addr    ),
+		//
+		.brd_n(brd_n),
+		.bwr_n(bwr_n)
 	);
 
 
@@ -133,10 +154,10 @@ module top
 	(
 		.za(za),
 
-		.w5300_a0inv(w5300_a0inv),
-		.w5300_addr (w5300_addr ),
-		.w5300_ports(w5300_ports),
-		.w5300_hi   (w5300_hi   )
+		.w5300_a0inv(w5300_a0inv   ),
+		.w5300_addr (pre_w5300_addr),
+		.w5300_ports(w5300_ports   ),
+		.w5300_hi   (w5300_hi      )
 	);
 
 
@@ -151,18 +172,14 @@ module top
 		.wrdata (ports_wrdata ),
 		.rddata (ports_rddata ),
 		//
-`ifndef NO_INTERRUPTS
 		.ena_w5300_int(ena_w5300_int),
 		.ena_sl811_int(ena_sl811_int),
 		.ena_zxbus_int(ena_zxbus_int),
-`endif
 		//
 		.w5300_int_n(w5300_int_n),
 		.sl811_intrq(sl811_intrq),
 		//
-`ifndef NO_INTERRUPTS
 		.internal_int(internal_int),
-`endif
 		//
 		.rommap_win(rommap_win),
 		.rommap_ena(rommap_ena),
@@ -179,8 +196,7 @@ module top
 	);
 
 
-`ifdef CLOCKED_FILTER
-	// brd
+/*	// brd
 	always @(posedge fclk)
 	begin
 		pre_brd_n <= zrd_n;
@@ -199,20 +215,17 @@ module top
 		//
 		bwr_n <= bwr_n_r || !shreg;
 	end
-`else
+	`else
 	// buffered RD_N and WR_N
 	always @* brd_n = zrd_n;
 	always @* bwr_n = zwr_n;
-`endif
+*/
 
-
-`ifndef NO_INTERRUPTS
 	// interrupt generation
 	assign internal_int = (ena_w5300_int & (~w5300_int_n)) |
 	                      (ena_sl811_int &   sl811_intrq ) ;
  	//
 	assign zint_n = (internal_int & ena_zxbus_int) ? 1'b0 : 1'bZ;
-`endif
 
 
 endmodule

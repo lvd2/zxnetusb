@@ -7,13 +7,13 @@
 `timescale 1ns/100ps
 
 //// CPU at 14MHz
-`define HALF_CPU_PERIOD (35)
+`define HALF_CPU_PERIOD (35.7)
 
 // CPU at 7MHz
 //`define HALF_CPU_PERIOD (70)
 
 // filter clock
-`define HALF_FCLK_PERIOD (20.7)
+`define HALF_FCLK_PERIOD (10.4)
 
 module tb;
 
@@ -39,7 +39,7 @@ module tb;
 	wire [15:0] a;
 	wire [ 7:0] d;
 
-	tri1 [ 7:0] #1 bd;
+	tri  [ 7:0] #1 bd;
 
 	wire brd_n, bwr_n;
 
@@ -114,9 +114,8 @@ module tb;
 
 	top DUT
 	(
-`ifdef CLOCKED_FILTER
 		.fclk(fclk),
-`endif
+
 		.za(a),
 		.zd(d),
 
@@ -283,7 +282,17 @@ module tb;
 
 	
 	
-	
+	task wait_end_access();
+
+		reg a;
+
+		a = 1'b0;
+		wait( brd_n==1'b1 && bwr_n==1'b1 );
+
+		a <= 1'b1;
+		wait(a==1'b1);
+
+	endtask
 	
 
 
@@ -357,6 +366,7 @@ module tb;
 		begin
 			wrdata = $random>>24;
 			z.iowr(port,wrdata);
+			wait_end_access();
 			if( w.get_addr()!==(waddr^a0_inv) ||
 			    w.get_rnw()!==1'b0            ||
 			    w.get_wr_data()!==wrdata      )
@@ -431,24 +441,28 @@ module tb;
 
 		if( $random>>31 )
 		begin
-			wrdata = $random>>24;
-			z.memwr(memaddr,wrdata);
-			if( where_rom==rom && sub_ena )
+			repeat(10)
 			begin
-				if( w.get_addr()!==(mk_w5300_addr(memaddr[13:0])^a0_inv) ||
-				    w.get_rnw()!==1'b0                                   ||
-				    w.get_wr_data()!==wrdata                             )
+				wrdata = $random>>24;
+				z.memwr(memaddr,wrdata);
+				wait_end_access();
+				if( where_rom==rom && sub_ena )
 				begin
-					$display("w5300 write failed!");
-					$stop;
+					if( w.get_addr()!==(mk_w5300_addr(memaddr[13:0])^a0_inv) ||
+					    w.get_rnw()!==1'b0                                   ||
+					    w.get_wr_data()!==wrdata                             )
+					begin
+						$display("w5300 write failed!");
+						$stop;
+					end
 				end
-			end
-			else
-			begin
-				if( w.get_addr()!=={10{1'bX}} || w.get_rnw()!==1'bX || w.get_wr_data()!=={8{1'bX}} )
+				else
 				begin
-					$display("write succeeded with wrong ROM mapping!");
-					$stop;
+					if( w.get_addr()!=={10{1'bX}} || w.get_rnw()!==1'bX || w.get_wr_data()!=={8{1'bX}} )
+					begin
+						$display("write succeeded with wrong ROM mapping!");
+						$stop;
+					end
 				end
 			end
 		end
@@ -517,6 +531,7 @@ module tb;
 		// check address reg
 		wrdata=$random>>24;
 		z.iowr(sl_addr,wrdata);
+		wait_end_access();
 		if( s.get_rnw()!==1'b0 || s.get_addr()!==1'b0 || s.get_wr_data()!==wrdata )
 		begin
 			$display("sl811 address write failed!");
@@ -540,6 +555,7 @@ module tb;
 		rdport[14:8]=$random>>25;
 		wrdata=$random>>24;
 		z.iowr(rdport,wrdata);
+		wait_end_access();
 		if( s.get_rnw()!==1'b0 || s.get_addr()!==1'b1 || s.get_wr_data()!==wrdata )
 		begin
 			$display("sl811 data write failed!");
@@ -570,6 +586,7 @@ module tb;
 		ms=$random>>31;
 
 		z.iowr(sl811_port,ms);
+		wait_end_access();
 
 		@(posedge clk);
 		if( (rst_n===1'b1 && s.get_ms()!==ms   ) ||

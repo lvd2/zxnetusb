@@ -11,8 +11,27 @@ state
 
 access time for both sl811 and w5300 -- 5tc
 
+data setup for w5300: 42ns
+data setup for sl811: 25..85ns
+
 
 READ: via latch, transparent during access time, then latches read data (if CPU cycle continues)
 
 WRITE: via latch, data latched from CPU early, shown to the peripherals for the 5 tc
+ -- ACHTUNG write /WR strobe is late!!!111
+
+5tc@48MHz = 1.5 tc @ 14MHz
+4tc@48MHz = 1.2 tc @ 14MHz
+so write will finish after 2.7 tc @ 14MHz after write pulse begin (memory write),
+such write WON'T coincide with the following memory read cycle, because it can't start earlier than
+3tc @48MHz after read pulse
+
+
+
+TODO:
+ + забуферировать rd/wr
+ + забуферировать cs's
+ + забуферировать sl811_a0
+ + забуферировать w5300_a
+ + сделать новое управление шиной
 
