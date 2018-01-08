@@ -2,7 +2,7 @@ ACCEL_ASCII "Z:\home\lvd\d\zxiznet\pcad\revC\zxinet.pcb"
 
 (asciiHeader 
   (asciiVersion 3 0)
-  (timeStamp 2018 1 9 0 42 52)
+  (timeStamp 2018 1 9 0 59 4)
   (program "P-CAD 2006 PCB" "19.02.9589")
   (copyright "Copyright © 1991-2006 Altium Limited")
   (fileAuthor "")
@@ -14055,7 +14055,7 @@ ACCEL_ASCII "Z:\home\lvd\d\zxiznet\pcad\revC\zxinet.pcb"
     (g54Option False)
     (useArcs False)
     (embedApertures True)
-    (useApertureHoles True)
+    (useApertureHoles False)
     (drawRotated True)
     (drawPolygons True)
     (apertureDef 
@@ -14180,179 +14180,163 @@ ACCEL_ASCII "Z:\home\lvd\d\zxiznet\pcad\revC\zxinet.pcb"
       (apertureShape Ellipse)
       (width 2.581)
       (height 2.581)
-      (holeDiam 1.6)
-      (desc "Ellipse X2.581mm Y2.581mm H1.600mm 0.0deg (0.000mm,0.000mm) Flash")
+      (holeDiam 0.0)
+      (desc "Ellipse X2.581mm Y2.581mm H0.000mm 0.0deg (0.000mm,0.000mm) Flash")
     )
     (apertureDef 
       (dCode 24)
       (apertureShape Ellipse)
       (width 3.581)
       (height 3.581)
-      (holeDiam 3.2)
-      (desc "Ellipse X3.581mm Y3.581mm H3.200mm 0.0deg (0.000mm,0.000mm) Flash")
+      (holeDiam 0.0)
+      (desc "Ellipse X3.581mm Y3.581mm H0.000mm 0.0deg (0.000mm,0.000mm) Flash")
     )
     (apertureDef 
       (dCode 25)
       (apertureShape Ellipse)
       (width 3.6)
       (height 3.6)
-      (holeDiam 2.5)
-      (desc "Ellipse X3.600mm Y3.600mm H2.500mm 0.0deg (0.000mm,0.000mm) Flash")
+      (holeDiam 0.0)
+      (desc "Ellipse X3.600mm Y3.600mm H0.000mm 0.0deg (0.000mm,0.000mm) Flash")
     )
     (apertureDef 
       (dCode 26)
       (apertureShape Ellipse)
       (width 3.981)
       (height 3.981)
-      (holeDiam 2.5)
-      (desc "Ellipse X3.981mm Y3.981mm H2.500mm 0.0deg (0.000mm,0.000mm) Flash")
+      (holeDiam 0.0)
+      (desc "Ellipse X3.981mm Y3.981mm H0.000mm 0.0deg (0.000mm,0.000mm) Flash")
     )
     (apertureDef 
       (dCode 27)
       (apertureShape Ellipse)
       (width 0.981)
       (height 0.981)
-      (holeDiam 0.6)
-      (desc "Ellipse X0.981mm Y0.981mm H0.600mm 0.0deg (0.000mm,0.000mm) Flash")
+      (holeDiam 0.0)
+      (desc "Ellipse X0.981mm Y0.981mm H0.000mm 0.0deg (0.000mm,0.000mm) Flash")
     )
     (apertureDef 
       (dCode 28)
       (apertureShape Ellipse)
       (width 1.381)
       (height 1.381)
-      (holeDiam 1.0)
-      (desc "Ellipse X1.381mm Y1.381mm H1.000mm 0.0deg (0.000mm,0.000mm) Flash")
+      (holeDiam 0.0)
+      (desc "Ellipse X1.381mm Y1.381mm H0.000mm 0.0deg (0.000mm,0.000mm) Flash")
     )
     (apertureDef 
       (dCode 29)
       (apertureShape Ellipse)
       (width 1.4)
       (height 1.4)
-      (holeDiam 0.9)
-      (desc "Ellipse X1.400mm Y1.400mm H0.900mm 0.0deg (0.000mm,0.000mm) Flash")
+      (holeDiam 0.0)
+      (desc "Ellipse X1.400mm Y1.400mm H0.000mm 0.0deg (0.000mm,0.000mm) Flash")
     )
     (apertureDef 
       (dCode 30)
       (apertureShape Ellipse)
       (width 1.5)
       (height 1.5)
-      (holeDiam 0.9)
-      (desc "Ellipse X1.500mm Y1.500mm H0.900mm 0.0deg (0.000mm,0.000mm) Flash")
+      (holeDiam 0.0)
+      (desc "Ellipse X1.500mm Y1.500mm H0.000mm 0.0deg (0.000mm,0.000mm) Flash")
     )
     (apertureDef 
       (dCode 31)
       (apertureShape Ellipse)
-      (width 1.5)
-      (height 1.5)
-      (holeDiam 1.0)
-      (desc "Ellipse X1.500mm Y1.500mm H1.000mm 0.0deg (0.000mm,0.000mm) Flash")
+      (width 1.524)
+      (height 1.524)
+      (holeDiam 0.0)
+      (desc "Ellipse X1.524mm Y1.524mm H0.000mm 0.0deg (0.000mm,0.000mm) Flash")
     )
     (apertureDef 
       (dCode 32)
       (apertureShape Ellipse)
-      (width 1.524)
-      (height 1.524)
-      (holeDiam 0.9652)
-      (desc "Ellipse X1.524mm Y1.524mm H0.965mm 0.0deg (0.000mm,0.000mm) Flash")
+      (width 1.6)
+      (height 1.6)
+      (holeDiam 0.0)
+      (desc "Ellipse X1.600mm Y1.600mm H0.000mm 0.0deg (0.000mm,0.000mm) Flash")
     )
     (apertureDef 
       (dCode 33)
       (apertureShape Ellipse)
-      (width 1.6)
-      (height 1.6)
-      (holeDiam 1.0)
-      (desc "Ellipse X1.600mm Y1.600mm H1.000mm 0.0deg (0.000mm,0.000mm) Flash")
+      (width 1.7)
+      (height 1.7)
+      (holeDiam 0.0)
+      (desc "Ellipse X1.700mm Y1.700mm H0.000mm 0.0deg (0.000mm,0.000mm) Flash")
     )
     (apertureDef 
       (dCode 34)
       (apertureShape Ellipse)
-      (width 1.7)
-      (height 1.7)
-      (holeDiam 1.1)
-      (desc "Ellipse X1.700mm Y1.700mm H1.100mm 0.0deg (0.000mm,0.000mm) Flash")
+      (width 1.781)
+      (height 1.781)
+      (holeDiam 0.0)
+      (desc "Ellipse X1.781mm Y1.781mm H0.000mm 0.0deg (0.000mm,0.000mm) Flash")
     )
     (apertureDef 
       (dCode 35)
       (apertureShape Ellipse)
-      (width 1.781)
-      (height 1.781)
-      (holeDiam 0.9)
-      (desc "Ellipse X1.781mm Y1.781mm H0.900mm 0.0deg (0.000mm,0.000mm) Flash")
+      (width 1.881)
+      (height 1.881)
+      (holeDiam 0.0)
+      (desc "Ellipse X1.881mm Y1.881mm H0.000mm 0.0deg (0.000mm,0.000mm) Flash")
     )
     (apertureDef 
       (dCode 36)
       (apertureShape Ellipse)
-      (width 1.881)
-      (height 1.881)
-      (holeDiam 0.9)
-      (desc "Ellipse X1.881mm Y1.881mm H0.900mm 0.0deg (0.000mm,0.000mm) Flash")
+      (width 1.905)
+      (height 1.905)
+      (holeDiam 0.0)
+      (desc "Ellipse X1.905mm Y1.905mm H0.000mm 0.0deg (0.000mm,0.000mm) Flash")
     )
     (apertureDef 
       (dCode 37)
       (apertureShape Ellipse)
-      (width 1.881)
-      (height 1.881)
-      (holeDiam 1.0)
-      (desc "Ellipse X1.881mm Y1.881mm H1.000mm 0.0deg (0.000mm,0.000mm) Flash")
+      (width 1.981)
+      (height 1.981)
+      (holeDiam 0.0)
+      (desc "Ellipse X1.981mm Y1.981mm H0.000mm 0.0deg (0.000mm,0.000mm) Flash")
     )
     (apertureDef 
       (dCode 38)
       (apertureShape Ellipse)
-      (width 1.905)
-      (height 1.905)
-      (holeDiam 0.9652)
-      (desc "Ellipse X1.905mm Y1.905mm H0.965mm 0.0deg (0.000mm,0.000mm) Flash")
+      (width 2.081)
+      (height 2.081)
+      (holeDiam 0.0)
+      (desc "Ellipse X2.081mm Y2.081mm H0.000mm 0.0deg (0.000mm,0.000mm) Flash")
     )
     (apertureDef 
       (dCode 39)
       (apertureShape Ellipse)
-      (width 1.981)
-      (height 1.981)
-      (holeDiam 1.0)
-      (desc "Ellipse X1.981mm Y1.981mm H1.000mm 0.0deg (0.000mm,0.000mm) Flash")
+      (width 2.2)
+      (height 2.2)
+      (holeDiam 0.0)
+      (desc "Ellipse X2.200mm Y2.200mm H0.000mm 0.0deg (0.000mm,0.000mm) Flash")
     )
     (apertureDef 
       (dCode 40)
-      (apertureShape Ellipse)
-      (width 2.081)
-      (height 2.081)
-      (holeDiam 1.1)
-      (desc "Ellipse X2.081mm Y2.081mm H1.100mm 0.0deg (0.000mm,0.000mm) Flash")
+      (apertureShape MtHole)
+      (width 3.2)
+      (height 3.2)
+      (holeDiam 0.0)
+      (desc "Mounting Hole X3.200mm Y3.200mm H0.000mm 0.0deg (0.000mm,0.000mm) Flash")
     )
     (apertureDef 
       (dCode 41)
-      (apertureShape Ellipse)
-      (width 2.2)
-      (height 2.2)
-      (holeDiam 1.6)
-      (desc "Ellipse X2.200mm Y2.200mm H1.600mm 0.0deg (0.000mm,0.000mm) Flash")
+      (apertureShape MtHole)
+      (width 0.6)
+      (height 0.6)
+      (holeDiam 0.0)
+      (desc "Mounting Hole X0.600mm Y0.600mm H0.000mm 0.0deg (0.000mm,0.000mm) Flash")
     )
     (apertureDef 
       (dCode 42)
       (apertureShape MtHole)
-      (width 3.2)
-      (height 3.2)
-      (holeDiam 3.2)
-      (desc "Mounting Hole X3.200mm Y3.200mm H3.200mm 0.0deg (0.000mm,0.000mm) Flash")
+      (width 1.0)
+      (height 1.0)
+      (holeDiam 0.0)
+      (desc "Mounting Hole X1.000mm Y1.000mm H0.000mm 0.0deg (0.000mm,0.000mm) Flash")
     )
     (apertureDef 
       (dCode 43)
-      (apertureShape MtHole)
-      (width 0.6)
-      (height 0.6)
-      (holeDiam 0.6)
-      (desc "Mounting Hole X0.600mm Y0.600mm H0.600mm 0.0deg (0.000mm,0.000mm) Flash")
-    )
-    (apertureDef 
-      (dCode 44)
-      (apertureShape MtHole)
-      (width 1.0)
-      (height 1.0)
-      (holeDiam 1.0)
-      (desc "Mounting Hole X1.000mm Y1.000mm H1.000mm 0.0deg (0.000mm,0.000mm) Flash")
-    )
-    (apertureDef 
-      (dCode 45)
       (apertureShape RndRect)
       (width 2.581)
       (height 2.381)
@@ -14360,7 +14344,7 @@ ACCEL_ASCII "Z:\home\lvd\d\zxiznet\pcad\revC\zxinet.pcb"
       (desc "Rounded Rectangle X2.581mm Y2.381mm H0.000mm 0.0deg (0.000mm,0.000mm) Flash")
     )
     (apertureDef 
-      (dCode 46)
+      (dCode 44)
       (apertureShape RndRect)
       (width 2.881)
       (height 2.881)
@@ -14368,7 +14352,7 @@ ACCEL_ASCII "Z:\home\lvd\d\zxiznet\pcad\revC\zxinet.pcb"
       (desc "Rounded Rectangle X2.881mm Y2.881mm H0.000mm 0.0deg (0.000mm,0.000mm) Flash")
     )
     (apertureDef 
-      (dCode 47)
+      (dCode 45)
       (apertureShape RndRect)
       (width 3.0)
       (height 1.6)
@@ -14376,7 +14360,7 @@ ACCEL_ASCII "Z:\home\lvd\d\zxiznet\pcad\revC\zxinet.pcb"
       (desc "Rounded Rectangle X3.000mm Y1.600mm H0.000mm 0.0deg (0.000mm,0.000mm) Flash")
     )
     (apertureDef 
-      (dCode 48)
+      (dCode 46)
       (apertureShape RndRect)
       (width 2.0)
       (height 3.0)
@@ -14384,7 +14368,7 @@ ACCEL_ASCII "Z:\home\lvd\d\zxiznet\pcad\revC\zxinet.pcb"
       (desc "Rounded Rectangle X2.000mm Y3.000mm H0.000mm 0.0deg (0.000mm,0.000mm) Flash")
     )
     (apertureDef 
-      (dCode 49)
+      (dCode 47)
       (apertureShape RndRect)
       (width 3.381)
       (height 1.981)
@@ -14392,7 +14376,7 @@ ACCEL_ASCII "Z:\home\lvd\d\zxiznet\pcad\revC\zxinet.pcb"
       (desc "Rounded Rectangle X3.381mm Y1.981mm H0.000mm 0.0deg (0.000mm,0.000mm) Flash")
     )
     (apertureDef 
-      (dCode 50)
+      (dCode 48)
       (apertureShape RndRect)
       (width 2.381)
       (height 3.381)
@@ -14400,7 +14384,7 @@ ACCEL_ASCII "Z:\home\lvd\d\zxiznet\pcad\revC\zxinet.pcb"
       (desc "Rounded Rectangle X2.381mm Y3.381mm H0.000mm 0.0deg (0.000mm,0.000mm) Flash")
     )
     (apertureDef 
-      (dCode 51)
+      (dCode 49)
       (apertureShape RndRect)
       (width 2.0)
       (height 0.5)
@@ -14408,7 +14392,7 @@ ACCEL_ASCII "Z:\home\lvd\d\zxiznet\pcad\revC\zxinet.pcb"
       (desc "Rounded Rectangle X2.000mm Y0.500mm H0.000mm 0.0deg (0.000mm,0.000mm) Flash")
     )
     (apertureDef 
-      (dCode 52)
+      (dCode 50)
       (apertureShape RndRect)
       (width 6.2)
       (height 5.8)
@@ -14416,7 +14400,7 @@ ACCEL_ASCII "Z:\home\lvd\d\zxiznet\pcad\revC\zxinet.pcb"
       (desc "Rounded Rectangle X6.200mm Y5.800mm H0.000mm 0.0deg (0.000mm,0.000mm) Flash")
     )
     (apertureDef 
-      (dCode 53)
+      (dCode 51)
       (apertureShape RndRect)
       (width 6.581)
       (height 6.181)
@@ -14424,7 +14408,7 @@ ACCEL_ASCII "Z:\home\lvd\d\zxiznet\pcad\revC\zxinet.pcb"
       (desc "Rounded Rectangle X6.581mm Y6.181mm H0.000mm 0.0deg (0.000mm,0.000mm) Flash")
     )
     (apertureDef 
-      (dCode 54)
+      (dCode 52)
       (apertureShape RndRect)
       (width 1.3)
       (height 0.7)
@@ -14432,7 +14416,7 @@ ACCEL_ASCII "Z:\home\lvd\d\zxiznet\pcad\revC\zxinet.pcb"
       (desc "Rounded Rectangle X1.300mm Y0.700mm H0.000mm 0.0deg (0.000mm,0.000mm) Flash")
     )
     (apertureDef 
-      (dCode 55)
+      (dCode 53)
       (apertureShape RndRect)
       (width 2.381)
       (height 0.881)
@@ -14440,7 +14424,7 @@ ACCEL_ASCII "Z:\home\lvd\d\zxiznet\pcad\revC\zxinet.pcb"
       (desc "Rounded Rectangle X2.381mm Y0.881mm H0.000mm 0.0deg (0.000mm,0.000mm) Flash")
     )
     (apertureDef 
-      (dCode 56)
+      (dCode 54)
       (apertureShape RndRect)
       (width 1.681)
       (height 1.081)
@@ -14448,7 +14432,7 @@ ACCEL_ASCII "Z:\home\lvd\d\zxiznet\pcad\revC\zxinet.pcb"
       (desc "Rounded Rectangle X1.681mm Y1.081mm H0.000mm 0.0deg (0.000mm,0.000mm) Flash")
     )
     (apertureDef 
-      (dCode 57)
+      (dCode 55)
       (apertureShape RndRect)
       (width 1.5)
       (height 2.0)
@@ -14456,7 +14440,7 @@ ACCEL_ASCII "Z:\home\lvd\d\zxiznet\pcad\revC\zxinet.pcb"
       (desc "Rounded Rectangle X1.500mm Y2.000mm H0.000mm 0.0deg (0.000mm,0.000mm) Flash")
     )
     (apertureDef 
-      (dCode 58)
+      (dCode 56)
       (apertureShape RndRect)
       (width 2.0)
       (height 1.5)
@@ -14464,7 +14448,7 @@ ACCEL_ASCII "Z:\home\lvd\d\zxiznet\pcad\revC\zxinet.pcb"
       (desc "Rounded Rectangle X2.000mm Y1.500mm H0.000mm 0.0deg (0.000mm,0.000mm) Flash")
     )
     (apertureDef 
-      (dCode 59)
+      (dCode 57)
       (apertureShape RndRect)
       (width 1.6)
       (height 0.3)
@@ -14472,7 +14456,7 @@ ACCEL_ASCII "Z:\home\lvd\d\zxiznet\pcad\revC\zxinet.pcb"
       (desc "Rounded Rectangle X1.600mm Y0.300mm H0.000mm 0.0deg (0.000mm,0.000mm) Flash")
     )
     (apertureDef 
-      (dCode 60)
+      (dCode 58)
       (apertureShape RndRect)
       (width 0.3)
       (height 1.6)
@@ -14480,7 +14464,7 @@ ACCEL_ASCII "Z:\home\lvd\d\zxiznet\pcad\revC\zxinet.pcb"
       (desc "Rounded Rectangle X0.300mm Y1.600mm H0.000mm 0.0deg (0.000mm,0.000mm) Flash")
     )
     (apertureDef 
-      (dCode 61)
+      (dCode 59)
       (apertureShape RndRect)
       (width 3.0)
       (height 1.7)
@@ -14488,7 +14472,7 @@ ACCEL_ASCII "Z:\home\lvd\d\zxiznet\pcad\revC\zxinet.pcb"
       (desc "Rounded Rectangle X3.000mm Y1.700mm H0.000mm 0.0deg (0.000mm,0.000mm) Flash")
     )
     (apertureDef 
-      (dCode 62)
+      (dCode 60)
       (apertureShape RndRect)
       (width 1.881)
       (height 2.381)
@@ -14496,7 +14480,7 @@ ACCEL_ASCII "Z:\home\lvd\d\zxiznet\pcad\revC\zxinet.pcb"
       (desc "Rounded Rectangle X1.881mm Y2.381mm H0.000mm 0.0deg (0.000mm,0.000mm) Flash")
     )
     (apertureDef 
-      (dCode 63)
+      (dCode 61)
       (apertureShape RndRect)
       (width 2.381)
       (height 1.881)
@@ -14504,7 +14488,7 @@ ACCEL_ASCII "Z:\home\lvd\d\zxiznet\pcad\revC\zxinet.pcb"
       (desc "Rounded Rectangle X2.381mm Y1.881mm H0.000mm 0.0deg (0.000mm,0.000mm) Flash")
     )
     (apertureDef 
-      (dCode 64)
+      (dCode 62)
       (apertureShape RndRect)
       (width 1.981)
       (height 0.681)
@@ -14512,7 +14496,7 @@ ACCEL_ASCII "Z:\home\lvd\d\zxiznet\pcad\revC\zxinet.pcb"
       (desc "Rounded Rectangle X1.981mm Y0.681mm H0.000mm 0.0deg (0.000mm,0.000mm) Flash")
     )
     (apertureDef 
-      (dCode 65)
+      (dCode 63)
       (apertureShape RndRect)
       (width 0.681)
       (height 1.981)
@@ -14520,7 +14504,7 @@ ACCEL_ASCII "Z:\home\lvd\d\zxiznet\pcad\revC\zxinet.pcb"
       (desc "Rounded Rectangle X0.681mm Y1.981mm H0.000mm 0.0deg (0.000mm,0.000mm) Flash")
     )
     (apertureDef 
-      (dCode 66)
+      (dCode 64)
       (apertureShape RndRect)
       (width 3.0)
       (height 2.0)
@@ -14528,7 +14512,7 @@ ACCEL_ASCII "Z:\home\lvd\d\zxiznet\pcad\revC\zxinet.pcb"
       (desc "Rounded Rectangle X3.000mm Y2.000mm H0.000mm 0.0deg (0.000mm,0.000mm) Flash")
     )
     (apertureDef 
-      (dCode 67)
+      (dCode 65)
       (apertureShape RndRect)
       (width 2.0)
       (height 0.65)
@@ -14536,7 +14520,7 @@ ACCEL_ASCII "Z:\home\lvd\d\zxiznet\pcad\revC\zxinet.pcb"
       (desc "Rounded Rectangle X2.000mm Y0.650mm H0.000mm 0.0deg (0.000mm,0.000mm) Flash")
     )
     (apertureDef 
-      (dCode 68)
+      (dCode 66)
       (apertureShape RndRect)
       (width 2.0)
       (height 2.0)
@@ -14544,7 +14528,7 @@ ACCEL_ASCII "Z:\home\lvd\d\zxiznet\pcad\revC\zxinet.pcb"
       (desc "Rounded Rectangle X2.000mm Y2.000mm H0.000mm 0.0deg (0.000mm,0.000mm) Flash")
     )
     (apertureDef 
-      (dCode 69)
+      (dCode 67)
       (apertureShape RndRect)
       (width 3.381)
       (height 2.081)
@@ -14552,7 +14536,7 @@ ACCEL_ASCII "Z:\home\lvd\d\zxiznet\pcad\revC\zxinet.pcb"
       (desc "Rounded Rectangle X3.381mm Y2.081mm H0.000mm 0.0deg (0.000mm,0.000mm) Flash")
     )
     (apertureDef 
-      (dCode 70)
+      (dCode 68)
       (apertureShape RndRect)
       (width 2.2)
       (height 2.0)
@@ -14560,7 +14544,7 @@ ACCEL_ASCII "Z:\home\lvd\d\zxiznet\pcad\revC\zxinet.pcb"
       (desc "Rounded Rectangle X2.200mm Y2.000mm H0.000mm 0.0deg (0.000mm,0.000mm) Flash")
     )
     (apertureDef 
-      (dCode 71)
+      (dCode 69)
       (apertureShape RndRect)
       (width 3.381)
       (height 2.381)
@@ -14568,7 +14552,7 @@ ACCEL_ASCII "Z:\home\lvd\d\zxiznet\pcad\revC\zxinet.pcb"
       (desc "Rounded Rectangle X3.381mm Y2.381mm H0.000mm 0.0deg (0.000mm,0.000mm) Flash")
     )
     (apertureDef 
-      (dCode 72)
+      (dCode 70)
       (apertureShape RndRect)
       (width 2.381)
       (height 1.031)
@@ -14576,7 +14560,7 @@ ACCEL_ASCII "Z:\home\lvd\d\zxiznet\pcad\revC\zxinet.pcb"
       (desc "Rounded Rectangle X2.381mm Y1.031mm H0.000mm 0.0deg (0.000mm,0.000mm) Flash")
     )
     (apertureDef 
-      (dCode 73)
+      (dCode 71)
       (apertureShape RndRect)
       (width 2.381)
       (height 2.381)
@@ -14584,7 +14568,7 @@ ACCEL_ASCII "Z:\home\lvd\d\zxiznet\pcad\revC\zxinet.pcb"
       (desc "Rounded Rectangle X2.381mm Y2.381mm H0.000mm 0.0deg (0.000mm,0.000mm) Flash")
     )
     (apertureDef 
-      (dCode 74)
+      (dCode 72)
       (apertureShape RndRect)
       (width 2.5)
       (height 2.5)
@@ -14592,7 +14576,7 @@ ACCEL_ASCII "Z:\home\lvd\d\zxiznet\pcad\revC\zxinet.pcb"
       (desc "Rounded Rectangle X2.500mm Y2.500mm H0.000mm 0.0deg (0.000mm,0.000mm) Flash")
     )
     (apertureDef 
-      (dCode 75)
+      (dCode 73)
       (apertureShape Rect)
       (width 1.5)
       (height 10.0)
@@ -14600,23 +14584,23 @@ ACCEL_ASCII "Z:\home\lvd\d\zxiznet\pcad\revC\zxinet.pcb"
       (desc "Rectangle X1.500mm Y10.000mm H0.000mm 0.0deg (0.000mm,0.000mm) Flash")
     )
     (apertureDef 
-      (dCode 76)
+      (dCode 74)
       (apertureShape Rect)
       (width 1.5)
       (height 1.5)
-      (holeDiam 0.9)
-      (desc "Rectangle X1.500mm Y1.500mm H0.900mm 0.0deg (0.000mm,0.000mm) Flash")
+      (holeDiam 0.0)
+      (desc "Rectangle X1.500mm Y1.500mm H0.000mm 0.0deg (0.000mm,0.000mm) Flash")
     )
     (apertureDef 
-      (dCode 77)
+      (dCode 75)
       (apertureShape Rect)
       (width 1.524)
       (height 1.524)
-      (holeDiam 0.9652)
-      (desc "Rectangle X1.524mm Y1.524mm H0.965mm 0.0deg (0.000mm,0.000mm) Flash")
+      (holeDiam 0.0)
+      (desc "Rectangle X1.524mm Y1.524mm H0.000mm 0.0deg (0.000mm,0.000mm) Flash")
     )
     (apertureDef 
-      (dCode 78)
+      (dCode 76)
       (apertureShape Rect)
       (width 1.6)
       (height 0.3)
@@ -14624,7 +14608,7 @@ ACCEL_ASCII "Z:\home\lvd\d\zxiznet\pcad\revC\zxinet.pcb"
       (desc "Rectangle X1.600mm Y0.300mm H0.000mm 0.0deg (0.000mm,0.000mm) Flash")
     )
     (apertureDef 
-      (dCode 79)
+      (dCode 77)
       (apertureShape Rect)
       (width 0.3)
       (height 1.6)
@@ -14632,15 +14616,15 @@ ACCEL_ASCII "Z:\home\lvd\d\zxiznet\pcad\revC\zxinet.pcb"
       (desc "Rectangle X0.300mm Y1.600mm H0.000mm 0.0deg (0.000mm,0.000mm) Flash")
     )
     (apertureDef 
-      (dCode 80)
+      (dCode 78)
       (apertureShape Rect)
       (width 1.6)
       (height 1.6)
-      (holeDiam 1.0)
-      (desc "Rectangle X1.600mm Y1.600mm H1.000mm 0.0deg (0.000mm,0.000mm) Flash")
+      (holeDiam 0.0)
+      (desc "Rectangle X1.600mm Y1.600mm H0.000mm 0.0deg (0.000mm,0.000mm) Flash")
     )
     (apertureDef 
-      (dCode 81)
+      (dCode 79)
       (apertureShape Rect)
       (width 1.881)
       (height 10.381)
@@ -14648,23 +14632,23 @@ ACCEL_ASCII "Z:\home\lvd\d\zxiznet\pcad\revC\zxinet.pcb"
       (desc "Rectangle X1.881mm Y10.381mm H0.000mm 0.0deg (0.000mm,0.000mm) Flash")
     )
     (apertureDef 
-      (dCode 82)
+      (dCode 80)
       (apertureShape Rect)
       (width 1.881)
       (height 1.881)
-      (holeDiam 0.9)
-      (desc "Rectangle X1.881mm Y1.881mm H0.900mm 0.0deg (0.000mm,0.000mm) Flash")
+      (holeDiam 0.0)
+      (desc "Rectangle X1.881mm Y1.881mm H0.000mm 0.0deg (0.000mm,0.000mm) Flash")
     )
     (apertureDef 
-      (dCode 83)
+      (dCode 81)
       (apertureShape Rect)
       (width 1.905)
       (height 1.905)
-      (holeDiam 0.9652)
-      (desc "Rectangle X1.905mm Y1.905mm H0.965mm 0.0deg (0.000mm,0.000mm) Flash")
+      (holeDiam 0.0)
+      (desc "Rectangle X1.905mm Y1.905mm H0.000mm 0.0deg (0.000mm,0.000mm) Flash")
     )
     (apertureDef 
-      (dCode 84)
+      (dCode 82)
       (apertureShape Rect)
       (width 1.981)
       (height 0.681)
@@ -14672,7 +14656,7 @@ ACCEL_ASCII "Z:\home\lvd\d\zxiznet\pcad\revC\zxinet.pcb"
       (desc "Rectangle X1.981mm Y0.681mm H0.000mm 0.0deg (0.000mm,0.000mm) Flash")
     )
     (apertureDef 
-      (dCode 85)
+      (dCode 83)
       (apertureShape Rect)
       (width 0.681)
       (height 1.981)
@@ -14680,44 +14664,36 @@ ACCEL_ASCII "Z:\home\lvd\d\zxiznet\pcad\revC\zxinet.pcb"
       (desc "Rectangle X0.681mm Y1.981mm H0.000mm 0.0deg (0.000mm,0.000mm) Flash")
     )
     (apertureDef 
-      (dCode 86)
+      (dCode 84)
       (apertureShape Rect)
       (width 1.981)
       (height 1.981)
-      (holeDiam 1.0)
-      (desc "Rectangle X1.981mm Y1.981mm H1.000mm 0.0deg (0.000mm,0.000mm) Flash")
+      (holeDiam 0.0)
+      (desc "Rectangle X1.981mm Y1.981mm H0.000mm 0.0deg (0.000mm,0.000mm) Flash")
+    )
+    (apertureDef 
+      (dCode 85)
+      (apertureShape Ellipse)
+      (width 5.5)
+      (height 5.5)
+      (holeDiam 0.0)
+      (desc "Ellipse X5.500mm Y5.500mm H0.000mm 0.0deg (0.000mm,0.000mm) Flash")
+    )
+    (apertureDef 
+      (dCode 86)
+      (apertureShape Ellipse)
+      (width 5.881)
+      (height 5.881)
+      (holeDiam 0.0)
+      (desc "Ellipse X5.881mm Y5.881mm H0.000mm 0.0deg (0.000mm,0.000mm) Flash")
     )
     (apertureDef 
       (dCode 87)
       (apertureShape Ellipse)
-      (width 5.5)
-      (height 5.5)
-      (holeDiam 3.5)
-      (desc "Ellipse X5.500mm Y5.500mm H3.500mm 0.0deg (0.000mm,0.000mm) Flash")
-    )
-    (apertureDef 
-      (dCode 88)
-      (apertureShape Ellipse)
-      (width 5.881)
-      (height 5.881)
-      (holeDiam 3.5)
-      (desc "Ellipse X5.881mm Y5.881mm H3.500mm 0.0deg (0.000mm,0.000mm) Flash")
-    )
-    (apertureDef 
-      (dCode 89)
-      (apertureShape Ellipse)
       (width 1.0)
       (height 1.0)
-      (holeDiam 0.5)
-      (desc "Ellipse X1.000mm Y1.000mm H0.500mm 0.0deg (0.000mm,0.000mm) Flash")
-    )
-    (apertureDef 
-      (dCode 90)
-      (apertureShape Ellipse)
-      (width 1.381)
-      (height 1.381)
-      (holeDiam 0.5)
-      (desc "Ellipse X1.381mm Y1.381mm H0.500mm 0.0deg (0.000mm,0.000mm) Flash")
+      (holeDiam 0.0)
+      (desc "Ellipse X1.000mm Y1.000mm H0.000mm 0.0deg (0.000mm,0.000mm) Flash")
     )
     (apertureAssn 
       (apertureRef (dCode 10))
@@ -14912,7 +14888,7 @@ ACCEL_ASCII "Z:\home\lvd\d\zxiznet\pcad\revC\zxinet.pcb"
       )
     )
     (apertureAssn 
-      (apertureRef (dCode 31))
+      (apertureRef (dCode 30))
       (itemMnemonic 
         "PAD EL 59.1mil 59.1mil 39.4mil 270.0deg (0.0mil,0.0mil)"
         "PAD EL 1.50mm 1.50mm 1.00mm 270.0deg (0.00mm,0.00mm)"
@@ -14920,7 +14896,7 @@ ACCEL_ASCII "Z:\home\lvd\d\zxiznet\pcad\revC\zxinet.pcb"
       )
     )
     (apertureAssn 
-      (apertureRef (dCode 32))
+      (apertureRef (dCode 31))
       (itemMnemonic 
         "PAD EL 60.0mil 60.0mil 38.0mil 0.0deg (0.0mil,0.0mil)"
         "PAD EL 1.52mm 1.52mm 0.97mm 0.0deg (0.00mm,0.00mm)"
@@ -14928,7 +14904,7 @@ ACCEL_ASCII "Z:\home\lvd\d\zxiznet\pcad\revC\zxinet.pcb"
       )
     )
     (apertureAssn 
-      (apertureRef (dCode 32))
+      (apertureRef (dCode 31))
       (itemMnemonic 
         "PAD EL 60.0mil 60.0mil 38.0mil 270.0deg (0.0mil,0.0mil)"
         "PAD EL 1.52mm 1.52mm 0.97mm 270.0deg (0.00mm,0.00mm)"
@@ -14936,7 +14912,7 @@ ACCEL_ASCII "Z:\home\lvd\d\zxiznet\pcad\revC\zxinet.pcb"
       )
     )
     (apertureAssn 
-      (apertureRef (dCode 33))
+      (apertureRef (dCode 32))
       (itemMnemonic 
         "PAD EL 63.0mil 63.0mil 39.4mil 180.0deg (0.0mil,0.0mil)"
         "PAD EL 1.60mm 1.60mm 1.00mm 180.0deg (0.00mm,0.00mm)"
@@ -14944,7 +14920,7 @@ ACCEL_ASCII "Z:\home\lvd\d\zxiznet\pcad\revC\zxinet.pcb"
       )
     )
     (apertureAssn 
-      (apertureRef (dCode 33))
+      (apertureRef (dCode 32))
       (itemMnemonic 
         "PAD EL 63.0mil 63.0mil 39.4mil 90.0deg (0.0mil,0.0mil)"
         "PAD EL 1.60mm 1.60mm 1.00mm 90.0deg (0.00mm,0.00mm)"
@@ -14952,7 +14928,7 @@ ACCEL_ASCII "Z:\home\lvd\d\zxiznet\pcad\revC\zxinet.pcb"
       )
     )
     (apertureAssn 
-      (apertureRef (dCode 34))
+      (apertureRef (dCode 33))
       (itemMnemonic 
         "PAD EL 66.9mil 66.9mil 43.3mil 90.0deg (0.0mil,0.0mil)"
         "PAD EL 1.70mm 1.70mm 1.10mm 90.0deg (0.00mm,0.00mm)"
@@ -14960,7 +14936,7 @@ ACCEL_ASCII "Z:\home\lvd\d\zxiznet\pcad\revC\zxinet.pcb"
       )
     )
     (apertureAssn 
-      (apertureRef (dCode 35))
+      (apertureRef (dCode 34))
       (itemMnemonic 
         "PAD EL 70.1mil 70.1mil 35.4mil 90.0deg (0.0mil,0.0mil)"
         "PAD EL 1.78mm 1.78mm 0.90mm 90.0deg (0.00mm,0.00mm)"
@@ -14968,7 +14944,7 @@ ACCEL_ASCII "Z:\home\lvd\d\zxiznet\pcad\revC\zxinet.pcb"
       )
     )
     (apertureAssn 
-      (apertureRef (dCode 36))
+      (apertureRef (dCode 35))
       (itemMnemonic 
         "PAD EL 74.1mil 74.1mil 35.4mil 0.0deg (0.0mil,0.0mil)"
         "PAD EL 1.88mm 1.88mm 0.90mm 0.0deg (0.00mm,0.00mm)"
@@ -14976,7 +14952,7 @@ ACCEL_ASCII "Z:\home\lvd\d\zxiznet\pcad\revC\zxinet.pcb"
       )
     )
     (apertureAssn 
-      (apertureRef (dCode 36))
+      (apertureRef (dCode 35))
       (itemMnemonic 
         "PAD EL 74.1mil 74.1mil 35.4mil 90.0deg (0.0mil,0.0mil)"
         "PAD EL 1.88mm 1.88mm 0.90mm 90.0deg (0.00mm,0.00mm)"
@@ -14984,7 +14960,7 @@ ACCEL_ASCII "Z:\home\lvd\d\zxiznet\pcad\revC\zxinet.pcb"
       )
     )
     (apertureAssn 
-      (apertureRef (dCode 37))
+      (apertureRef (dCode 35))
       (itemMnemonic 
         "PAD EL 74.1mil 74.1mil 39.4mil 270.0deg (0.0mil,0.0mil)"
         "PAD EL 1.88mm 1.88mm 1.00mm 270.0deg (0.00mm,0.00mm)"
@@ -14992,7 +14968,7 @@ ACCEL_ASCII "Z:\home\lvd\d\zxiznet\pcad\revC\zxinet.pcb"
       )
     )
     (apertureAssn 
-      (apertureRef (dCode 38))
+      (apertureRef (dCode 36))
       (itemMnemonic 
         "PAD EL 75.0mil 75.0mil 38.0mil 0.0deg (0.0mil,0.0mil)"
         "PAD EL 1.91mm 1.91mm 0.97mm 0.0deg (0.00mm,0.00mm)"
@@ -15000,7 +14976,7 @@ ACCEL_ASCII "Z:\home\lvd\d\zxiznet\pcad\revC\zxinet.pcb"
       )
     )
     (apertureAssn 
-      (apertureRef (dCode 38))
+      (apertureRef (dCode 36))
       (itemMnemonic 
         "PAD EL 75.0mil 75.0mil 38.0mil 270.0deg (0.0mil,0.0mil)"
         "PAD EL 1.91mm 1.91mm 0.97mm 270.0deg (0.00mm,0.00mm)"
@@ -15008,7 +14984,7 @@ ACCEL_ASCII "Z:\home\lvd\d\zxiznet\pcad\revC\zxinet.pcb"
       )
     )
     (apertureAssn 
-      (apertureRef (dCode 39))
+      (apertureRef (dCode 37))
       (itemMnemonic 
         "PAD EL 78.0mil 78.0mil 39.4mil 180.0deg (0.0mil,0.0mil)"
         "PAD EL 1.98mm 1.98mm 1.00mm 180.0deg (0.00mm,0.00mm)"
@@ -15016,7 +14992,7 @@ ACCEL_ASCII "Z:\home\lvd\d\zxiznet\pcad\revC\zxinet.pcb"
       )
     )
     (apertureAssn 
-      (apertureRef (dCode 39))
+      (apertureRef (dCode 37))
       (itemMnemonic 
         "PAD EL 78.0mil 78.0mil 39.4mil 90.0deg (0.0mil,0.0mil)"
         "PAD EL 1.98mm 1.98mm 1.00mm 90.0deg (0.00mm,0.00mm)"
@@ -15024,7 +15000,7 @@ ACCEL_ASCII "Z:\home\lvd\d\zxiznet\pcad\revC\zxinet.pcb"
       )
     )
     (apertureAssn 
-      (apertureRef (dCode 40))
+      (apertureRef (dCode 38))
       (itemMnemonic 
         "PAD EL 81.9mil 81.9mil 43.3mil 90.0deg (0.0mil,0.0mil)"
         "PAD EL 2.08mm 2.08mm 1.10mm 90.0deg (0.00mm,0.00mm)"
@@ -15032,7 +15008,7 @@ ACCEL_ASCII "Z:\home\lvd\d\zxiznet\pcad\revC\zxinet.pcb"
       )
     )
     (apertureAssn 
-      (apertureRef (dCode 41))
+      (apertureRef (dCode 39))
       (itemMnemonic 
         "PAD EL 86.6mil 86.6mil 63.0mil 90.0deg (0.0mil,0.0mil)"
         "PAD EL 2.20mm 2.20mm 1.60mm 90.0deg (0.00mm,0.00mm)"
@@ -15040,7 +15016,7 @@ ACCEL_ASCII "Z:\home\lvd\d\zxiznet\pcad\revC\zxinet.pcb"
       )
     )
     (apertureAssn 
-      (apertureRef (dCode 42))
+      (apertureRef (dCode 40))
       (itemMnemonic 
         "PAD MH 126.0mil 126.0mil 126.0mil 90.0deg (0.0mil,0.0mil)"
         "PAD MH 3.20mm 3.20mm 3.20mm 90.0deg (0.00mm,0.00mm)"
@@ -15048,7 +15024,7 @@ ACCEL_ASCII "Z:\home\lvd\d\zxiznet\pcad\revC\zxinet.pcb"
       )
     )
     (apertureAssn 
-      (apertureRef (dCode 43))
+      (apertureRef (dCode 41))
       (itemMnemonic 
         "PAD MH 23.6mil 23.6mil 23.6mil 0.0deg (0.0mil,0.0mil)"
         "PAD MH 0.60mm 0.60mm 0.60mm 0.0deg (0.00mm,0.00mm)"
@@ -15056,7 +15032,7 @@ ACCEL_ASCII "Z:\home\lvd\d\zxiznet\pcad\revC\zxinet.pcb"
       )
     )
     (apertureAssn 
-      (apertureRef (dCode 44))
+      (apertureRef (dCode 42))
       (itemMnemonic 
         "PAD MH 39.4mil 39.4mil 39.4mil 90.0deg (0.0mil,0.0mil)"
         "PAD MH 1.00mm 1.00mm 1.00mm 90.0deg (0.00mm,0.00mm)"
@@ -15064,7 +15040,7 @@ ACCEL_ASCII "Z:\home\lvd\d\zxiznet\pcad\revC\zxinet.pcb"
       )
     )
     (apertureAssn 
-      (apertureRef (dCode 45))
+      (apertureRef (dCode 43))
       (itemMnemonic 
         "PAD RR 101.6mil 93.7mil 0.0mil 0.0deg (0.0mil,0.0mil)"
         "PAD RR 2.58mm 2.38mm 0.00mm 0.0deg (0.00mm,0.00mm)"
@@ -15072,7 +15048,7 @@ ACCEL_ASCII "Z:\home\lvd\d\zxiznet\pcad\revC\zxinet.pcb"
       )
     )
     (apertureAssn 
-      (apertureRef (dCode 45))
+      (apertureRef (dCode 43))
       (itemMnemonic 
         "PAD RR 101.6mil 93.7mil 0.0mil 180.0deg (0.0mil,0.0mil)"
         "PAD RR 2.58mm 2.38mm 0.00mm 180.0deg (0.00mm,0.00mm)"
@@ -15080,7 +15056,7 @@ ACCEL_ASCII "Z:\home\lvd\d\zxiznet\pcad\revC\zxinet.pcb"
       )
     )
     (apertureAssn 
-      (apertureRef (dCode 46))
+      (apertureRef (dCode 44))
       (itemMnemonic 
         "PAD RR 113.4mil 113.4mil 0.0mil 180.0deg (0.0mil,0.0mil)"
         "PAD RR 2.88mm 2.88mm 0.00mm 180.0deg (0.00mm,0.00mm)"
@@ -15088,7 +15064,7 @@ ACCEL_ASCII "Z:\home\lvd\d\zxiznet\pcad\revC\zxinet.pcb"
       )
     )
     (apertureAssn 
-      (apertureRef (dCode 47))
+      (apertureRef (dCode 45))
       (itemMnemonic 
         "PAD RR 118.1mil 63.0mil 0.0mil 0.0deg (0.0mil,0.0mil)"
         "PAD RR 3.00mm 1.60mm 0.00mm 0.0deg (0.00mm,0.00mm)"
@@ -15096,7 +15072,7 @@ ACCEL_ASCII "Z:\home\lvd\d\zxiznet\pcad\revC\zxinet.pcb"
       )
     )
     (apertureAssn 
-      (apertureRef (dCode 48))
+      (apertureRef (dCode 46))
       (itemMnemonic 
         "PAD RR 118.1mil 78.7mil 0.0mil 90.0deg (0.0mil,0.0mil)"
         "PAD RR 3.00mm 2.00mm 0.00mm 90.0deg (0.00mm,0.00mm)"
@@ -15104,7 +15080,7 @@ ACCEL_ASCII "Z:\home\lvd\d\zxiznet\pcad\revC\zxinet.pcb"
       )
     )
     (apertureAssn 
-      (apertureRef (dCode 49))
+      (apertureRef (dCode 47))
       (itemMnemonic 
         "PAD RR 133.1mil 78.0mil 0.0mil 0.0deg (0.0mil,0.0mil)"
         "PAD RR 3.38mm 1.98mm 0.00mm 0.0deg (0.00mm,0.00mm)"
@@ -15112,7 +15088,7 @@ ACCEL_ASCII "Z:\home\lvd\d\zxiznet\pcad\revC\zxinet.pcb"
       )
     )
     (apertureAssn 
-      (apertureRef (dCode 50))
+      (apertureRef (dCode 48))
       (itemMnemonic 
         "PAD RR 133.1mil 93.7mil 0.0mil 90.0deg (0.0mil,0.0mil)"
         "PAD RR 3.38mm 2.38mm 0.00mm 90.0deg (0.00mm,0.00mm)"
@@ -15120,7 +15096,7 @@ ACCEL_ASCII "Z:\home\lvd\d\zxiznet\pcad\revC\zxinet.pcb"
       )
     )
     (apertureAssn 
-      (apertureRef (dCode 51))
+      (apertureRef (dCode 49))
       (itemMnemonic 
         "PAD RR 19.7mil 78.7mil 0.0mil 90.0deg (0.0mil,0.0mil)"
         "PAD RR 0.50mm 2.00mm 0.00mm 90.0deg (0.00mm,0.00mm)"
@@ -15128,7 +15104,7 @@ ACCEL_ASCII "Z:\home\lvd\d\zxiznet\pcad\revC\zxinet.pcb"
       )
     )
     (apertureAssn 
-      (apertureRef (dCode 52))
+      (apertureRef (dCode 50))
       (itemMnemonic 
         "PAD RR 244.1mil 228.3mil 0.0mil 0.0deg (0.0mil,0.0mil)"
         "PAD RR 6.20mm 5.80mm 0.00mm 0.0deg (0.00mm,0.00mm)"
@@ -15136,7 +15112,7 @@ ACCEL_ASCII "Z:\home\lvd\d\zxiznet\pcad\revC\zxinet.pcb"
       )
     )
     (apertureAssn 
-      (apertureRef (dCode 53))
+      (apertureRef (dCode 51))
       (itemMnemonic 
         "PAD RR 259.1mil 243.3mil 0.0mil 0.0deg (0.0mil,0.0mil)"
         "PAD RR 6.58mm 6.18mm 0.00mm 0.0deg (0.00mm,0.00mm)"
@@ -15144,7 +15120,7 @@ ACCEL_ASCII "Z:\home\lvd\d\zxiznet\pcad\revC\zxinet.pcb"
       )
     )
     (apertureAssn 
-      (apertureRef (dCode 54))
+      (apertureRef (dCode 52))
       (itemMnemonic 
         "PAD RR 27.6mil 51.2mil 0.0mil 90.0deg (0.0mil,0.0mil)"
         "PAD RR 0.70mm 1.30mm 0.00mm 90.0deg (0.00mm,0.00mm)"
@@ -15152,7 +15128,7 @@ ACCEL_ASCII "Z:\home\lvd\d\zxiznet\pcad\revC\zxinet.pcb"
       )
     )
     (apertureAssn 
-      (apertureRef (dCode 55))
+      (apertureRef (dCode 53))
       (itemMnemonic 
         "PAD RR 34.7mil 93.7mil 0.0mil 90.0deg (0.0mil,0.0mil)"
         "PAD RR 0.88mm 2.38mm 0.00mm 90.0deg (0.00mm,0.00mm)"
@@ -15160,7 +15136,7 @@ ACCEL_ASCII "Z:\home\lvd\d\zxiznet\pcad\revC\zxinet.pcb"
       )
     )
     (apertureAssn 
-      (apertureRef (dCode 56))
+      (apertureRef (dCode 54))
       (itemMnemonic 
         "PAD RR 42.6mil 66.2mil 0.0mil 90.0deg (0.0mil,0.0mil)"
         "PAD RR 1.08mm 1.68mm 0.00mm 90.0deg (0.00mm,0.00mm)"
@@ -15168,7 +15144,7 @@ ACCEL_ASCII "Z:\home\lvd\d\zxiznet\pcad\revC\zxinet.pcb"
       )
     )
     (apertureAssn 
-      (apertureRef (dCode 57))
+      (apertureRef (dCode 55))
       (itemMnemonic 
         "PAD RR 59.1mil 78.7mil 0.0mil 0.0deg (0.0mil,0.0mil)"
         "PAD RR 1.50mm 2.00mm 0.00mm 0.0deg (0.00mm,0.00mm)"
@@ -15176,7 +15152,7 @@ ACCEL_ASCII "Z:\home\lvd\d\zxiznet\pcad\revC\zxinet.pcb"
       )
     )
     (apertureAssn 
-      (apertureRef (dCode 58))
+      (apertureRef (dCode 56))
       (itemMnemonic 
         "PAD RR 59.1mil 78.7mil 0.0mil 270.0deg (0.0mil,0.0mil)"
         "PAD RR 1.50mm 2.00mm 0.00mm 270.0deg (0.00mm,0.00mm)"
@@ -15184,7 +15160,7 @@ ACCEL_ASCII "Z:\home\lvd\d\zxiznet\pcad\revC\zxinet.pcb"
       )
     )
     (apertureAssn 
-      (apertureRef (dCode 59))
+      (apertureRef (dCode 57))
       (itemMnemonic 
         "PAD RR 63.0mil 11.8mil 0.0mil 0.0deg (0.0mil,0.0mil)"
         "PAD RR 1.60mm 0.30mm 0.00mm 0.0deg (0.00mm,0.00mm)"
@@ -15192,7 +15168,7 @@ ACCEL_ASCII "Z:\home\lvd\d\zxiznet\pcad\revC\zxinet.pcb"
       )
     )
     (apertureAssn 
-      (apertureRef (dCode 59))
+      (apertureRef (dCode 57))
       (itemMnemonic 
         "PAD RR 63.0mil 11.8mil 0.0mil 180.0deg (0.0mil,0.0mil)"
         "PAD RR 1.60mm 0.30mm 0.00mm 180.0deg (0.00mm,0.00mm)"
@@ -15200,7 +15176,7 @@ ACCEL_ASCII "Z:\home\lvd\d\zxiznet\pcad\revC\zxinet.pcb"
       )
     )
     (apertureAssn 
-      (apertureRef (dCode 60))
+      (apertureRef (dCode 58))
       (itemMnemonic 
         "PAD RR 63.0mil 11.8mil 0.0mil 270.0deg (0.0mil,0.0mil)"
         "PAD RR 1.60mm 0.30mm 0.00mm 270.0deg (0.00mm,0.00mm)"
@@ -15208,7 +15184,7 @@ ACCEL_ASCII "Z:\home\lvd\d\zxiznet\pcad\revC\zxinet.pcb"
       )
     )
     (apertureAssn 
-      (apertureRef (dCode 60))
+      (apertureRef (dCode 58))
       (itemMnemonic 
         "PAD RR 63.0mil 11.8mil 0.0mil 90.0deg (0.0mil,0.0mil)"
         "PAD RR 1.60mm 0.30mm 0.00mm 90.0deg (0.00mm,0.00mm)"
@@ -15216,7 +15192,7 @@ ACCEL_ASCII "Z:\home\lvd\d\zxiznet\pcad\revC\zxinet.pcb"
       )
     )
     (apertureAssn 
-      (apertureRef (dCode 61))
+      (apertureRef (dCode 59))
       (itemMnemonic 
         "PAD RR 66.9mil 118.1mil 0.0mil 270.0deg (0.0mil,0.0mil)"
         "PAD RR 1.70mm 3.00mm 0.00mm 270.0deg (0.00mm,0.00mm)"
@@ -15224,7 +15200,7 @@ ACCEL_ASCII "Z:\home\lvd\d\zxiznet\pcad\revC\zxinet.pcb"
       )
     )
     (apertureAssn 
-      (apertureRef (dCode 61))
+      (apertureRef (dCode 59))
       (itemMnemonic 
         "PAD RR 66.9mil 118.1mil 0.0mil 90.0deg (0.0mil,0.0mil)"
         "PAD RR 1.70mm 3.00mm 0.00mm 90.0deg (0.00mm,0.00mm)"
@@ -15232,7 +15208,7 @@ ACCEL_ASCII "Z:\home\lvd\d\zxiznet\pcad\revC\zxinet.pcb"
       )
     )
     (apertureAssn 
-      (apertureRef (dCode 62))
+      (apertureRef (dCode 60))
       (itemMnemonic 
         "PAD RR 74.1mil 93.7mil 0.0mil 0.0deg (0.0mil,0.0mil)"
         "PAD RR 1.88mm 2.38mm 0.00mm 0.0deg (0.00mm,0.00mm)"
@@ -15240,7 +15216,7 @@ ACCEL_ASCII "Z:\home\lvd\d\zxiznet\pcad\revC\zxinet.pcb"
       )
     )
     (apertureAssn 
-      (apertureRef (dCode 63))
+      (apertureRef (dCode 61))
       (itemMnemonic 
         "PAD RR 74.1mil 93.7mil 0.0mil 270.0deg (0.0mil,0.0mil)"
         "PAD RR 1.88mm 2.38mm 0.00mm 270.0deg (0.00mm,0.00mm)"
@@ -15248,7 +15224,7 @@ ACCEL_ASCII "Z:\home\lvd\d\zxiznet\pcad\revC\zxinet.pcb"
       )
     )
     (apertureAssn 
-      (apertureRef (dCode 64))
+      (apertureRef (dCode 62))
       (itemMnemonic 
         "PAD RR 78.0mil 26.8mil 0.0mil 0.0deg (0.0mil,0.0mil)"
         "PAD RR 1.98mm 0.68mm 0.00mm 0.0deg (0.00mm,0.00mm)"
@@ -15256,7 +15232,7 @@ ACCEL_ASCII "Z:\home\lvd\d\zxiznet\pcad\revC\zxinet.pcb"
       )
     )
     (apertureAssn 
-      (apertureRef (dCode 64))
+      (apertureRef (dCode 62))
       (itemMnemonic 
         "PAD RR 78.0mil 26.8mil 0.0mil 180.0deg (0.0mil,0.0mil)"
         "PAD RR 1.98mm 0.68mm 0.00mm 180.0deg (0.00mm,0.00mm)"
@@ -15264,7 +15240,7 @@ ACCEL_ASCII "Z:\home\lvd\d\zxiznet\pcad\revC\zxinet.pcb"
       )
     )
     (apertureAssn 
-      (apertureRef (dCode 65))
+      (apertureRef (dCode 63))
       (itemMnemonic 
         "PAD RR 78.0mil 26.8mil 0.0mil 270.0deg (0.0mil,0.0mil)"
         "PAD RR 1.98mm 0.68mm 0.00mm 270.0deg (0.00mm,0.00mm)"
@@ -15272,7 +15248,7 @@ ACCEL_ASCII "Z:\home\lvd\d\zxiznet\pcad\revC\zxinet.pcb"
       )
     )
     (apertureAssn 
-      (apertureRef (dCode 65))
+      (apertureRef (dCode 63))
       (itemMnemonic 
         "PAD RR 78.0mil 26.8mil 0.0mil 90.0deg (0.0mil,0.0mil)"
         "PAD RR 1.98mm 0.68mm 0.00mm 90.0deg (0.00mm,0.00mm)"
@@ -15280,7 +15256,7 @@ ACCEL_ASCII "Z:\home\lvd\d\zxiznet\pcad\revC\zxinet.pcb"
       )
     )
     (apertureAssn 
-      (apertureRef (dCode 66))
+      (apertureRef (dCode 64))
       (itemMnemonic 
         "PAD RR 78.7mil 118.1mil 0.0mil 90.0deg (0.0mil,0.0mil)"
         "PAD RR 2.00mm 3.00mm 0.00mm 90.0deg (0.00mm,0.00mm)"
@@ -15288,7 +15264,7 @@ ACCEL_ASCII "Z:\home\lvd\d\zxiznet\pcad\revC\zxinet.pcb"
       )
     )
     (apertureAssn 
-      (apertureRef (dCode 67))
+      (apertureRef (dCode 65))
       (itemMnemonic 
         "PAD RR 78.7mil 25.6mil 0.0mil 180.0deg (0.0mil,0.0mil)"
         "PAD RR 2.00mm 0.65mm 0.00mm 180.0deg (0.00mm,0.00mm)"
@@ -15296,7 +15272,7 @@ ACCEL_ASCII "Z:\home\lvd\d\zxiznet\pcad\revC\zxinet.pcb"
       )
     )
     (apertureAssn 
-      (apertureRef (dCode 68))
+      (apertureRef (dCode 66))
       (itemMnemonic 
         "PAD RR 78.7mil 78.7mil 0.0mil 0.0deg (0.0mil,0.0mil)"
         "PAD RR 2.00mm 2.00mm 0.00mm 0.0deg (0.00mm,0.00mm)"
@@ -15304,7 +15280,7 @@ ACCEL_ASCII "Z:\home\lvd\d\zxiznet\pcad\revC\zxinet.pcb"
       )
     )
     (apertureAssn 
-      (apertureRef (dCode 68))
+      (apertureRef (dCode 66))
       (itemMnemonic 
         "PAD RR 78.7mil 78.7mil 0.0mil 180.0deg (0.0mil,0.0mil)"
         "PAD RR 2.00mm 2.00mm 0.00mm 180.0deg (0.00mm,0.00mm)"
@@ -15312,7 +15288,7 @@ ACCEL_ASCII "Z:\home\lvd\d\zxiznet\pcad\revC\zxinet.pcb"
       )
     )
     (apertureAssn 
-      (apertureRef (dCode 68))
+      (apertureRef (dCode 66))
       (itemMnemonic 
         "PAD RR 78.7mil 78.7mil 0.0mil 270.0deg (0.0mil,0.0mil)"
         "PAD RR 2.00mm 2.00mm 0.00mm 270.0deg (0.00mm,0.00mm)"
@@ -15328,7 +15304,7 @@ ACCEL_ASCII "Z:\home\lvd\d\zxiznet\pcad\revC\zxinet.pcb"
       )
     )
     (apertureAssn 
-      (apertureRef (dCode 68))
+      (apertureRef (dCode 66))
       (itemMnemonic 
         "PAD RR 78.7mil 78.7mil 0.0mil 90.0deg (0.0mil,0.0mil)"
         "PAD RR 2.00mm 2.00mm 0.00mm 90.0deg (0.00mm,0.00mm)"
@@ -15336,7 +15312,7 @@ ACCEL_ASCII "Z:\home\lvd\d\zxiznet\pcad\revC\zxinet.pcb"
       )
     )
     (apertureAssn 
-      (apertureRef (dCode 69))
+      (apertureRef (dCode 67))
       (itemMnemonic 
         "PAD RR 81.9mil 133.1mil 0.0mil 270.0deg (0.0mil,0.0mil)"
         "PAD RR 2.08mm 3.38mm 0.00mm 270.0deg (0.00mm,0.00mm)"
@@ -15344,7 +15320,7 @@ ACCEL_ASCII "Z:\home\lvd\d\zxiznet\pcad\revC\zxinet.pcb"
       )
     )
     (apertureAssn 
-      (apertureRef (dCode 69))
+      (apertureRef (dCode 67))
       (itemMnemonic 
         "PAD RR 81.9mil 133.1mil 0.0mil 90.0deg (0.0mil,0.0mil)"
         "PAD RR 2.08mm 3.38mm 0.00mm 90.0deg (0.00mm,0.00mm)"
@@ -15352,7 +15328,7 @@ ACCEL_ASCII "Z:\home\lvd\d\zxiznet\pcad\revC\zxinet.pcb"
       )
     )
     (apertureAssn 
-      (apertureRef (dCode 70))
+      (apertureRef (dCode 68))
       (itemMnemonic 
         "PAD RR 86.6mil 78.7mil 0.0mil 0.0deg (0.0mil,0.0mil)"
         "PAD RR 2.20mm 2.00mm 0.00mm 0.0deg (0.00mm,0.00mm)"
@@ -15360,7 +15336,7 @@ ACCEL_ASCII "Z:\home\lvd\d\zxiznet\pcad\revC\zxinet.pcb"
       )
     )
     (apertureAssn 
-      (apertureRef (dCode 70))
+      (apertureRef (dCode 68))
       (itemMnemonic 
         "PAD RR 86.6mil 78.7mil 0.0mil 180.0deg (0.0mil,0.0mil)"
         "PAD RR 2.20mm 2.00mm 0.00mm 180.0deg (0.00mm,0.00mm)"
@@ -15368,7 +15344,7 @@ ACCEL_ASCII "Z:\home\lvd\d\zxiznet\pcad\revC\zxinet.pcb"
       )
     )
     (apertureAssn 
-      (apertureRef (dCode 71))
+      (apertureRef (dCode 69))
       (itemMnemonic 
         "PAD RR 93.7mil 133.1mil 0.0mil 90.0deg (0.0mil,0.0mil)"
         "PAD RR 2.38mm 3.38mm 0.00mm 90.0deg (0.00mm,0.00mm)"
@@ -15376,7 +15352,7 @@ ACCEL_ASCII "Z:\home\lvd\d\zxiznet\pcad\revC\zxinet.pcb"
       )
     )
     (apertureAssn 
-      (apertureRef (dCode 72))
+      (apertureRef (dCode 70))
       (itemMnemonic 
         "PAD RR 93.7mil 40.6mil 0.0mil 180.0deg (0.0mil,0.0mil)"
         "PAD RR 2.38mm 1.03mm 0.00mm 180.0deg (0.00mm,0.00mm)"
@@ -15384,7 +15360,7 @@ ACCEL_ASCII "Z:\home\lvd\d\zxiznet\pcad\revC\zxinet.pcb"
       )
     )
     (apertureAssn 
-      (apertureRef (dCode 73))
+      (apertureRef (dCode 71))
       (itemMnemonic 
         "PAD RR 93.7mil 93.7mil 0.0mil 0.0deg (0.0mil,0.0mil)"
         "PAD RR 2.38mm 2.38mm 0.00mm 0.0deg (0.00mm,0.00mm)"
@@ -15392,7 +15368,7 @@ ACCEL_ASCII "Z:\home\lvd\d\zxiznet\pcad\revC\zxinet.pcb"
       )
     )
     (apertureAssn 
-      (apertureRef (dCode 73))
+      (apertureRef (dCode 71))
       (itemMnemonic 
         "PAD RR 93.7mil 93.7mil 0.0mil 180.0deg (0.0mil,0.0mil)"
         "PAD RR 2.38mm 2.38mm 0.00mm 180.0deg (0.00mm,0.00mm)"
@@ -15400,7 +15376,7 @@ ACCEL_ASCII "Z:\home\lvd\d\zxiznet\pcad\revC\zxinet.pcb"
       )
     )
     (apertureAssn 
-      (apertureRef (dCode 73))
+      (apertureRef (dCode 71))
       (itemMnemonic 
         "PAD RR 93.7mil 93.7mil 0.0mil 270.0deg (0.0mil,0.0mil)"
         "PAD RR 2.38mm 2.38mm 0.00mm 270.0deg (0.00mm,0.00mm)"
@@ -15416,7 +15392,7 @@ ACCEL_ASCII "Z:\home\lvd\d\zxiznet\pcad\revC\zxinet.pcb"
       )
     )
     (apertureAssn 
-      (apertureRef (dCode 73))
+      (apertureRef (dCode 71))
       (itemMnemonic 
         "PAD RR 93.7mil 93.7mil 0.0mil 90.0deg (0.0mil,0.0mil)"
         "PAD RR 2.38mm 2.38mm 0.00mm 90.0deg (0.00mm,0.00mm)"
@@ -15424,7 +15400,7 @@ ACCEL_ASCII "Z:\home\lvd\d\zxiznet\pcad\revC\zxinet.pcb"
       )
     )
     (apertureAssn 
-      (apertureRef (dCode 74))
+      (apertureRef (dCode 72))
       (itemMnemonic 
         "PAD RR 98.4mil 98.4mil 0.0mil 180.0deg (0.0mil,0.0mil)"
         "PAD RR 2.50mm 2.50mm 0.00mm 180.0deg (0.00mm,0.00mm)"
@@ -15432,7 +15408,7 @@ ACCEL_ASCII "Z:\home\lvd\d\zxiznet\pcad\revC\zxinet.pcb"
       )
     )
     (apertureAssn 
-      (apertureRef (dCode 75))
+      (apertureRef (dCode 73))
       (itemMnemonic 
         "PAD SQ 59.1mil 393.7mil 0.0mil 0.0deg (0.0mil,0.0mil)"
         "PAD SQ 1.50mm 10.00mm 0.00mm 0.0deg (0.00mm,0.00mm)"
@@ -15440,7 +15416,7 @@ ACCEL_ASCII "Z:\home\lvd\d\zxiznet\pcad\revC\zxinet.pcb"
       )
     )
     (apertureAssn 
-      (apertureRef (dCode 76))
+      (apertureRef (dCode 74))
       (itemMnemonic 
         "PAD SQ 59.1mil 59.1mil 35.4mil 0.0deg (0.0mil,0.0mil)"
         "PAD SQ 1.50mm 1.50mm 0.90mm 0.0deg (0.00mm,0.00mm)"
@@ -15448,7 +15424,7 @@ ACCEL_ASCII "Z:\home\lvd\d\zxiznet\pcad\revC\zxinet.pcb"
       )
     )
     (apertureAssn 
-      (apertureRef (dCode 77))
+      (apertureRef (dCode 75))
       (itemMnemonic 
         "PAD SQ 60.0mil 60.0mil 38.0mil 0.0deg (0.0mil,0.0mil)"
         "PAD SQ 1.52mm 1.52mm 0.97mm 0.0deg (0.00mm,0.00mm)"
@@ -15456,7 +15432,7 @@ ACCEL_ASCII "Z:\home\lvd\d\zxiznet\pcad\revC\zxinet.pcb"
       )
     )
     (apertureAssn 
-      (apertureRef (dCode 77))
+      (apertureRef (dCode 75))
       (itemMnemonic 
         "PAD SQ 60.0mil 60.0mil 38.0mil 270.0deg (0.0mil,0.0mil)"
         "PAD SQ 1.52mm 1.52mm 0.97mm 270.0deg (0.00mm,0.00mm)"
@@ -15464,7 +15440,7 @@ ACCEL_ASCII "Z:\home\lvd\d\zxiznet\pcad\revC\zxinet.pcb"
       )
     )
     (apertureAssn 
-      (apertureRef (dCode 78))
+      (apertureRef (dCode 76))
       (itemMnemonic 
         "PAD SQ 63.0mil 11.8mil 0.0mil 0.0deg (0.0mil,0.0mil)"
         "PAD SQ 1.60mm 0.30mm 0.00mm 0.0deg (0.00mm,0.00mm)"
@@ -15472,7 +15448,7 @@ ACCEL_ASCII "Z:\home\lvd\d\zxiznet\pcad\revC\zxinet.pcb"
       )
     )
     (apertureAssn 
-      (apertureRef (dCode 79))
+      (apertureRef (dCode 77))
       (itemMnemonic 
         "PAD SQ 63.0mil 11.8mil 0.0mil 270.0deg (0.0mil,0.0mil)"
         "PAD SQ 1.60mm 0.30mm 0.00mm 270.0deg (0.00mm,0.00mm)"
@@ -15480,7 +15456,7 @@ ACCEL_ASCII "Z:\home\lvd\d\zxiznet\pcad\revC\zxinet.pcb"
       )
     )
     (apertureAssn 
-      (apertureRef (dCode 80))
+      (apertureRef (dCode 78))
       (itemMnemonic 
         "PAD SQ 63.0mil 63.0mil 39.4mil 180.0deg (0.0mil,0.0mil)"
         "PAD SQ 1.60mm 1.60mm 1.00mm 180.0deg (0.00mm,0.00mm)"
@@ -15488,7 +15464,7 @@ ACCEL_ASCII "Z:\home\lvd\d\zxiznet\pcad\revC\zxinet.pcb"
       )
     )
     (apertureAssn 
-      (apertureRef (dCode 81))
+      (apertureRef (dCode 79))
       (itemMnemonic 
         "PAD SQ 74.1mil 408.7mil 0.0mil 0.0deg (0.0mil,0.0mil)"
         "PAD SQ 1.88mm 10.38mm 0.00mm 0.0deg (0.00mm,0.00mm)"
@@ -15496,7 +15472,7 @@ ACCEL_ASCII "Z:\home\lvd\d\zxiznet\pcad\revC\zxinet.pcb"
       )
     )
     (apertureAssn 
-      (apertureRef (dCode 82))
+      (apertureRef (dCode 80))
       (itemMnemonic 
         "PAD SQ 74.1mil 74.1mil 35.4mil 0.0deg (0.0mil,0.0mil)"
         "PAD SQ 1.88mm 1.88mm 0.90mm 0.0deg (0.00mm,0.00mm)"
@@ -15504,7 +15480,7 @@ ACCEL_ASCII "Z:\home\lvd\d\zxiznet\pcad\revC\zxinet.pcb"
       )
     )
     (apertureAssn 
-      (apertureRef (dCode 83))
+      (apertureRef (dCode 81))
       (itemMnemonic 
         "PAD SQ 75.0mil 75.0mil 38.0mil 0.0deg (0.0mil,0.0mil)"
         "PAD SQ 1.91mm 1.91mm 0.97mm 0.0deg (0.00mm,0.00mm)"
@@ -15512,7 +15488,7 @@ ACCEL_ASCII "Z:\home\lvd\d\zxiznet\pcad\revC\zxinet.pcb"
       )
     )
     (apertureAssn 
-      (apertureRef (dCode 83))
+      (apertureRef (dCode 81))
       (itemMnemonic 
         "PAD SQ 75.0mil 75.0mil 38.0mil 270.0deg (0.0mil,0.0mil)"
         "PAD SQ 1.91mm 1.91mm 0.97mm 270.0deg (0.00mm,0.00mm)"
@@ -15520,7 +15496,7 @@ ACCEL_ASCII "Z:\home\lvd\d\zxiznet\pcad\revC\zxinet.pcb"
       )
     )
     (apertureAssn 
-      (apertureRef (dCode 84))
+      (apertureRef (dCode 82))
       (itemMnemonic 
         "PAD SQ 78.0mil 26.8mil 0.0mil 0.0deg (0.0mil,0.0mil)"
         "PAD SQ 1.98mm 0.68mm 0.00mm 0.0deg (0.00mm,0.00mm)"
@@ -15528,7 +15504,7 @@ ACCEL_ASCII "Z:\home\lvd\d\zxiznet\pcad\revC\zxinet.pcb"
       )
     )
     (apertureAssn 
-      (apertureRef (dCode 85))
+      (apertureRef (dCode 83))
       (itemMnemonic 
         "PAD SQ 78.0mil 26.8mil 0.0mil 270.0deg (0.0mil,0.0mil)"
         "PAD SQ 1.98mm 0.68mm 0.00mm 270.0deg (0.00mm,0.00mm)"
@@ -15536,7 +15512,7 @@ ACCEL_ASCII "Z:\home\lvd\d\zxiznet\pcad\revC\zxinet.pcb"
       )
     )
     (apertureAssn 
-      (apertureRef (dCode 86))
+      (apertureRef (dCode 84))
       (itemMnemonic 
         "PAD SQ 78.0mil 78.0mil 39.4mil 180.0deg (0.0mil,0.0mil)"
         "PAD SQ 1.98mm 1.98mm 1.00mm 180.0deg (0.00mm,0.00mm)"
@@ -15544,7 +15520,7 @@ ACCEL_ASCII "Z:\home\lvd\d\zxiznet\pcad\revC\zxinet.pcb"
       )
     )
     (apertureAssn 
-      (apertureRef (dCode 87))
+      (apertureRef (dCode 85))
       (itemMnemonic 
         "VIA EL 216.5mil 216.5mil 137.8mil 0.0deg (0.0mil,0.0mil)"
         "VIA EL 5.50mm 5.50mm 3.50mm 0.0deg (0.00mm,0.00mm)"
@@ -15552,7 +15528,7 @@ ACCEL_ASCII "Z:\home\lvd\d\zxiznet\pcad\revC\zxinet.pcb"
       )
     )
     (apertureAssn 
-      (apertureRef (dCode 88))
+      (apertureRef (dCode 86))
       (itemMnemonic 
         "VIA EL 231.5mil 231.5mil 137.8mil 0.0deg (0.0mil,0.0mil)"
         "VIA EL 5.88mm 5.88mm 3.50mm 0.0deg (0.00mm,0.00mm)"
@@ -15560,7 +15536,7 @@ ACCEL_ASCII "Z:\home\lvd\d\zxiznet\pcad\revC\zxinet.pcb"
       )
     )
     (apertureAssn 
-      (apertureRef (dCode 89))
+      (apertureRef (dCode 87))
       (itemMnemonic 
         "VIA EL 39.4mil 39.4mil 19.7mil 0.0deg (0.0mil,0.0mil)"
         "VIA EL 1.00mm 1.00mm 0.50mm 0.0deg (0.00mm,0.00mm)"
@@ -15568,7 +15544,7 @@ ACCEL_ASCII "Z:\home\lvd\d\zxiznet\pcad\revC\zxinet.pcb"
       )
     )
     (apertureAssn 
-      (apertureRef (dCode 89))
+      (apertureRef (dCode 87))
       (itemMnemonic 
         "VIA EL 39.4mil 39.4mil 19.7mil 135.0deg (0.0mil,0.0mil)"
         "VIA EL 1.00mm 1.00mm 0.50mm 135.0deg (0.00mm,0.00mm)"
@@ -15576,7 +15552,7 @@ ACCEL_ASCII "Z:\home\lvd\d\zxiznet\pcad\revC\zxinet.pcb"
       )
     )
     (apertureAssn 
-      (apertureRef (dCode 89))
+      (apertureRef (dCode 87))
       (itemMnemonic 
         "VIA EL 39.4mil 39.4mil 19.7mil 270.0deg (0.0mil,0.0mil)"
         "VIA EL 1.00mm 1.00mm 0.50mm 270.0deg (0.00mm,0.00mm)"
@@ -15584,7 +15560,7 @@ ACCEL_ASCII "Z:\home\lvd\d\zxiznet\pcad\revC\zxinet.pcb"
       )
     )
     (apertureAssn 
-      (apertureRef (dCode 90))
+      (apertureRef (dCode 28))
       (itemMnemonic 
         "VIA EL 54.4mil 54.4mil 19.7mil 0.0deg (0.0mil,0.0mil)"
         "VIA EL 1.38mm 1.38mm 0.50mm 0.0deg (0.00mm,0.00mm)"
@@ -15592,7 +15568,7 @@ ACCEL_ASCII "Z:\home\lvd\d\zxiznet\pcad\revC\zxinet.pcb"
       )
     )
     (apertureAssn 
-      (apertureRef (dCode 90))
+      (apertureRef (dCode 28))
       (itemMnemonic 
         "VIA EL 54.4mil 54.4mil 19.7mil 135.0deg (0.0mil,0.0mil)"
         "VIA EL 1.38mm 1.38mm 0.50mm 135.0deg (0.00mm,0.00mm)"
@@ -15600,7 +15576,7 @@ ACCEL_ASCII "Z:\home\lvd\d\zxiznet\pcad\revC\zxinet.pcb"
       )
     )
     (apertureAssn 
-      (apertureRef (dCode 90))
+      (apertureRef (dCode 28))
       (itemMnemonic 
         "VIA EL 54.4mil 54.4mil 19.7mil 270.0deg (0.0mil,0.0mil)"
         "VIA EL 1.38mm 1.38mm 0.50mm 270.0deg (0.00mm,0.00mm)"
@@ -15615,7 +15591,6 @@ ACCEL_ASCII "Z:\home\lvd\d\zxiznet\pcad\revC\zxinet.pcb"
       (drillSymSize 2.032)
       (outputPads True)
       (outputVias True)
-      (outputHoles True)
     )
     (camQueueEntry "GBO"
       (layerList 
@@ -15623,8 +15598,6 @@ ACCEL_ASCII "Z:\home\lvd\d\zxiznet\pcad\revC\zxinet.pcb"
       )
       (isSelected True)
       (drillSymSize 2.032)
-      (outputPads True)
-      (outputVias True)
       (outputRefDes True)
       (outputType True)
       (outputValue True)
@@ -15643,8 +15616,6 @@ ACCEL_ASCII "Z:\home\lvd\d\zxiznet\pcad\revC\zxinet.pcb"
       )
       (isSelected True)
       (drillSymSize 2.032)
-      (outputPads True)
-      (outputVias True)
     )
     (camQueueEntry "GTL"
       (layerList 
@@ -15654,7 +15625,6 @@ ACCEL_ASCII "Z:\home\lvd\d\zxiznet\pcad\revC\zxinet.pcb"
       (drillSymSize 2.032)
       (outputPads True)
       (outputVias True)
-      (outputHoles True)
     )
     (camQueueEntry "GTO"
       (layerList 
@@ -15662,8 +15632,6 @@ ACCEL_ASCII "Z:\home\lvd\d\zxiznet\pcad\revC\zxinet.pcb"
       )
       (isSelected True)
       (drillSymSize 2.032)
-      (outputPads True)
-      (outputVias True)
       (outputRefDes True)
       (outputType True)
       (outputValue True)
