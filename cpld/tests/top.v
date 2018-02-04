@@ -91,7 +91,7 @@ module top
 	begin
 		shreg[53:1] <= shreg[52:0];
 
-		shreg[0] <= shreg[53] ^ shreg[52] ^ shreg[17] ^ shreg[16];
+		shreg[0] <= ~(shreg[53] ^ shreg[52] ^ shreg[17] ^ shreg[16]);
 	end
 
 
