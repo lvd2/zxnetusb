@@ -1,10 +1,10 @@
 
-8048_BOARD.DRL - drill
-8048_BOARD.GBL - bottom layer copper
-8048_BOARD.GBO - bottom layer silk
-8048_BOARD.GBS - bottom layer mask
-8048_BOARD.GKO - board outline
-8048_BOARD.GTL - top layer copper
-8048_BOARD.GTO - top layer silk
-8048_BOARD.GTS - top layer mask
+ZXINET.DRL - drill
+ZXINET.GBL - bottom layer copper
+ZXINET.GBO - bottom layer silk
+ZXINET.GBS - bottom layer mask
+ZXINET.GKO - board outline
+ZXINET.GTL - top layer copper
+ZXINET.GTO - top layer silk
+ZXINET.GTS - top layer mask
 
