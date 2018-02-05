@@ -1,5 +1,5 @@
 // ZXiznet project
-// (c) NedoPC 2012
+// (c) NedoPC 2012-2018
 //
 // ports of card: #83AB, #82AB, #81AB (read/write),
 // correspond to addr=2'b11, 2'b10, 2'b01

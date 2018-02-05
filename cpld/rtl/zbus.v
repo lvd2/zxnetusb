@@ -1,5 +1,5 @@
 // ZXiznet project
-// (c) NedoPC 2012
+// (c) NedoPC 2012-2018
 //
 // zx-bus functions: ports mapping/access, ROM mapping
 

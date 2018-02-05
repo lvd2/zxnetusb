@@ -1,5 +1,5 @@
 // ZXiznet project
-// (c) NedoPC 2012
+// (c) NedoPC 2012-2018
 //
 // top-level module
 
