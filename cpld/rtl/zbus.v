@@ -129,19 +129,19 @@ module zbus
 	end
 	else
 	begin
-		     if( wr_regs[2:1]==2'b11 && !wr_state )
+		     if( wr_regs[2:1]==2'b01 && !wr_state )
 			wr_state <= 1'b1;
 		else if( wr_regs[2:1]==2'b00 &&  wr_state )
 			wr_state <= 1'b0;
 		//
-		     if( rd_regs[2:1]==2'b11 && !rd_state )
+		     if( rd_regs[2:1]==2'b01 && !rd_state )
 			rd_state <= 1'b1;
 		else if( rd_regs[2:1]==2'b00 &&  rd_state )
 			rd_state <= 1'b0;
 	end
 	//
-	assign wr_start = wr_regs[2:1]==2'b11 && !wr_state;
-	assign rd_start = rd_regs[2:1]==2'b11 && !rd_state;
+	assign wr_start = wr_regs[2:1]==2'b01 && !wr_state;
+	assign rd_start = rd_regs[2:1]==2'b01 && !rd_state;
 
 
 	// buffered rd/wrs
