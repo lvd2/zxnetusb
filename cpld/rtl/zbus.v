@@ -179,8 +179,8 @@ module zbus
 	always @(posedge fclk)
 	if( wr_start || rd_start )
 	begin
-		w5300_cs_n <= r_w5300_cs_n[1];
-		sl811_cs_n <= r_sl811_cs_n[1];
+		w5300_cs_n <= r_w5300_cs_n[0];
+		sl811_cs_n <= r_sl811_cs_n[0];
 	end
 	else if( !ctr_5 )
 	begin
