@@ -195,7 +195,7 @@ module zbus
 	//
 	always @(posedge fclk)
 	if( wr_start || rd_start )
-		sl811_a0 <= r_sl811_a0[1];
+		sl811_a0 <= r_sl811_a0[0];
 
 
 
@@ -208,7 +208,7 @@ module zbus
 	//
 	always @(posedge fclk)
 	if( wr_start || rd_start )
-		w5300_addr <= r_w5300_addr[1];
+		w5300_addr <= r_w5300_addr[0];
 
 
 
