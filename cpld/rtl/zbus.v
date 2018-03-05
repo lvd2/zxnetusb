@@ -129,19 +129,19 @@ module zbus
 	end
 	else
 	begin
-		     if( wr_regs[2:1]==2'b01 && !wr_state )
+		     if( wr_regs[1:0]==2'b01 && !wr_state )
 			wr_state <= 1'b1;
-		else if( wr_regs[2:1]==2'b00 &&  wr_state )
+		else if( wr_regs[1:0]==2'b00 &&  wr_state )
 			wr_state <= 1'b0;
 		//
-		     if( rd_regs[2:1]==2'b01 && !rd_state )
+		     if( rd_regs[1:0]==2'b01 && !rd_state )
 			rd_state <= 1'b1;
-		else if( rd_regs[2:1]==2'b00 &&  rd_state )
+		else if( rd_regs[1:0]==2'b00 &&  rd_state )
 			rd_state <= 1'b0;
 	end
 	//
-	assign wr_start = wr_regs[2:1]==2'b01 && !wr_state;
-	assign rd_start = rd_regs[2:1]==2'b01 && !rd_state;
+	assign wr_start = wr_regs[1:0]==2'b01 && !wr_state;
+	assign rd_start = rd_regs[1:0]==2'b01 && !rd_state;
 
 
 	// buffered rd/wrs
@@ -179,8 +179,8 @@ module zbus
 	always @(posedge fclk)
 	if( wr_start || rd_start )
 	begin
-		w5300_cs_n <= r_w5300_cs_n[0];
-		sl811_cs_n <= r_sl811_cs_n[0];
+		w5300_cs_n <= async_w5300_cs_n;
+		sl811_cs_n <= async_sl811_cs_n;
 	end
 	else if( !ctr_5 )
 	begin
@@ -195,7 +195,7 @@ module zbus
 	//
 	always @(posedge fclk)
 	if( wr_start || rd_start )
-		sl811_a0 <= r_sl811_a0[0];
+		sl811_a0 <= async_sl811_a0;
 
 
 
@@ -208,7 +208,7 @@ module zbus
 	//
 	always @(posedge fclk)
 	if( wr_start || rd_start )
-		w5300_addr <= r_w5300_addr[0];
+		w5300_addr <= async_w5300_addr;
 
 
 
