@@ -85,7 +85,7 @@ module top
 
 	wire       w5300_a0inv;
 	wire       w5300_ports;
-	wire [2:0] w5300_hi;
+	wire [3:0] w5300_hi;
 
 	wire [9:0] pre_w5300_addr;
 

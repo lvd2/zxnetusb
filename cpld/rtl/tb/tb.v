@@ -221,8 +221,10 @@ module tb;
 /// here start tests
 
 	reg [15:0] rstint_port = 16'h83_AB;
-	reg [15:0] w5300_port  = 16'h82_AB;
-	reg [15:0] sl811_port  = 16'h81_AB;
+//	reg [15:0] w5300_port  = 16'h82_AB;
+//	reg [15:0] sl811_port  = 16'h81_AB;
+	reg [15:0] cfg_port    = 16'h82_AB;
+	reg [15:0] wiomap_port = 16'h81_AB;
 	reg [15:0] sl_addr     = 16'h80_AB;
 	reg [15:0] sl_data     = 16'h7F_AB;
 	
@@ -345,18 +347,29 @@ module tb;
 
 
 
-		z.iowr(w5300_port,{waddr[9:7],1'b1,a0_inv,3'd0});
+		z.iowr(cfg_port,{3'd0,1'b1,a0_inv,3'd0});
 
-		z.iord(w5300_port,tmp);
-		if( tmp!=={waddr[9:7],1'b1,a0_inv,3'd0} )
+		z.iord(cfg_port,tmp);
+		if( tmp[4:0]!=={1'b1,a0_inv,3'd0} )
 		begin
 			$display("can't set w5300 port!");
 			$stop;
 		end
 		
+
+		z.iowr(wiomap_port,waddr[9:6]);
+		z.iord(wiomap_port,tmp);
+		if( tmp[3:0]!==waddr[9:6] )
+		begin
+			$display("can't set wiomap port!");
+			$stop;
+		end
+
+
+
 		// make access port address
 		port = sl_data;
-		port[14:8] = waddr[6:0];
+		port[13:8] = waddr[5:0];
 
 
 		w.init_access(); // clear access_* to X
@@ -410,10 +423,10 @@ module tb;
 		a0_inv = $random>>31;
 		sub_ena= $random>>31;
 
-		z.iowr(w5300_port,{4'd0,a0_inv,sub_ena,rom});
+		z.iowr(cfg_port,{4'd0,a0_inv,sub_ena,rom});
 
-		z.iord(w5300_port,tmp);
-		if( tmp!=={4'd0,a0_inv,sub_ena,rom} )
+		z.iord(cfg_port,tmp);
+		if( tmp[4:0]!=={1'd0,a0_inv,sub_ena,rom} )
 		begin
 			$display("can't set w5300 port!");
 			$stop;
@@ -520,11 +533,11 @@ module tb;
 
 
 		// turn off w5300 port access
-		z.iord(w5300_port,tmp);
+		z.iord(cfg_port,tmp);
 		if( tmp[4]!==1'b0 )
 		begin
 			tmp[4]=1'b0;
-			z.iowr(w5300_port,tmp);
+			z.iowr(cfg_port,tmp);
 		end
 
 
@@ -585,7 +598,7 @@ module tb;
 
 		ms=$random>>31;
 
-		z.iowr(sl811_port,ms);
+		z.iowr(cfg_port,{1'b0,ms,6'd0});
 		wait_end_access();
 
 		@(posedge clk);
@@ -599,8 +612,8 @@ module tb;
 		
 		usb_power <= $random>>31;
 		@(posedge clk);
-		z.iord(sl811_port,tmp);
-		if( tmp[1]!==usb_power )
+		z.iord(cfg_port,tmp);
+		if( tmp[7]!==usb_power )
 		begin
 			$display("can't sense usb_power!");
 			$stop;

@@ -9,4 +9,4 @@ void wiz_reset(void);
 void DelayMs(unsigned char nFactor); 
 unsigned char getkey(void);
 
-#define SL811_RESET() output(0x81ab,0x00);output(0x83ab,0x20);halt()
+#define SL811_RESET() output(0x82ab,input(0x82ab)&0xbf);output(0x83ab,0x20);halt()

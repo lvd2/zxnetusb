@@ -35,7 +35,7 @@ void wiz_reset(void)
 	output(0x83ab,0x10);
 	DelayMs(500);
 	
-	output(0x82ab,0x0c);
+	output(0x82ab,0x4c);
 	
 	*WMR=0x80;
 	DelayMs(500);

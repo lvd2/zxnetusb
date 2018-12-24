@@ -11,7 +11,7 @@ module wizmap
 	//
 	input  wire        w5300_a0inv,
 	input  wire        w5300_ports,
-	input  wire [ 2:0] w5300_hi,
+	input  wire [ 3:0] w5300_hi,
 
 	//
 	output wire [ 9:0] w5300_addr
@@ -43,7 +43,7 @@ module wizmap
 
 
 
-	assign w5300_addr = w5300_ports ? {w5300_hi,za[14:9],za[8]^w5300_a0inv} : mem_w5300;
+	assign w5300_addr = w5300_ports ? {w5300_hi,za[13:9],za[8]^w5300_a0inv} : mem_w5300;
 	
 
 

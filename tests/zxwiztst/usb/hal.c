@@ -17,7 +17,7 @@ void SL11HardReset(void)
 	unsigned char val=input(0x83ab)&0x10;
 	halt();
 	output(0x83ab,val);
-	output(0x81ab,0x00);
+	output(0x82ab,input(0x82ab)&0xbf);
 	halt();
 	val|=0x20;
 	output(0x83ab,val);

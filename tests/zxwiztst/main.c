@@ -263,12 +263,12 @@ void memtest(unsigned char wp){
 	
 	if(wp)
 	{
-		output(0x82ab,0x10);
+		output(0x82ab,0x50);
 		output(0x01ab,0x80);
 	}
 	else	
 	{
-		output(0x82ab,0x0c);
+		output(0x82ab,0x4c);
 		*WMR=0x80;
 	}
 	
@@ -284,7 +284,7 @@ void memtest(unsigned char wp){
 		*WMR=0x20;
 	}
 	if(wp){
-		output(0x82ab,0x90);	
+		output(0x81ab,0x08);	
 		output(0x01ab,Sn_MR_TCP);
 		output(0x03ab,Sn_CR_OPEN);
 		while(input(0x09ab) != SOCK_INIT);
@@ -305,9 +305,9 @@ void memtest(unsigned char wp){
 			i--;
 			if(wp)
 			{
-				output(0x82ab,0x90);	
+				//output(0x82ab,0x90);	
 				output(0x30ab,rnd(0));
-				output(0x82ab,0x90);
+				//output(0x82ab,0x90);
 				output(0x31ab,rnd(0));
 			}
 			else
@@ -325,9 +325,9 @@ void memtest(unsigned char wp){
 			unsigned char readb0;
 			if(wp)
 			{
-				output(0x82ab,0x90);	
+				//output(0x82ab,0x90);	
 				readb1=input(0x30ab);
-				output(0x82ab,0x90);
+				//output(0x82ab,0x90);
 				readb0=input(0x31ab);
 			}
 			else
