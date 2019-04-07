@@ -3,7 +3,7 @@
 ;Опции проекта. Нужное раскомментировать, программа изменится
 
 	MODULE 	gui_sample
-	PUBLIC 	main11,LSTMHZ,putchar,puts,myint,getkey
+	PUBLIC 	main11,LSTMHZ,putchar,puts,myint,getkey,winlog
 	EXTERN 	FONT6X8,broadcast,strip,recv_p,memtest,usb_test
 	EXTERN 	RX_BUF,mhz,update_main_menu,editbuf,sscanf
 	EXTERN	miniterm
@@ -33,14 +33,26 @@
 ;Файл макросов. ПОСЛЕ всех настроек
         #include "MACROS.s01"
 
-        ;ORG 24576
+winlog:
+		push bc
+		push de
+		push ix
+		push iy
+		call logwinini
+		pop iy
+		pop ix
+		pop de
+		pop bc
+		ret
+
+
 main11:
 ;Главное окно
 		push bc
 		push de
 		push ix
 		push iy
-		call logwinini
+		;call logwinini
 PROGR_UPD
 		call update_main_menu
         LD A,WIN_HEADER|WIN_REFRESH|WIN_MOVABLE

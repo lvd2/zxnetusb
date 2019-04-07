@@ -15,6 +15,7 @@
 #define RMSR ((unsigned char*)(WIZ_BASE_ADDR+0x0028))
 #define MTYPER ((unsigned char*)(WIZ_BASE_ADDR+0x0030))
 #define WID ((unsigned char*)(WIZ_BASE_ADDR+0x00fe))
+#define WIDW ((unsigned int*)(WIZ_BASE_ADDR+0x00fe))
 
 
 #define S_MR(soc_) ((unsigned char*)(WIZ_BASE_ADDR+soc_*0x40+0x0200))

@@ -25,6 +25,7 @@ extern FLAGS bdata bFlags;
 
 void main11(void);
 void myint(void);
+void winlog(void);
 
 unsigned char rndini(unsigned char start){
 	static unsigned char h,l;
@@ -452,9 +453,55 @@ void usb_test(void){
 		printf("\nBads: %u",b);
 	}	
 }
-
+const unsigned char * pmsg="Port %X %s detected\r\n";
+void testports(void){
+	unsigned char err=0;
+	if(((output(0x81ab,0),input(0x81ab)&0x0f)==0x00)&&
+		((output(0x81ab,0x0a),input(0x81ab)&0x0f)==0x0a)){
+		printf(pmsg,0x81ab,"");
+	}else {
+		printf(pmsg,0x81ab,"not");
+		err=1;
+	}
+	if(((output(0x82ab,0x40),input(0x82ab)&0x5f)==0x40)&&
+		((output(0x82ab,0x5b),input(0x82ab)&0x5f)==0x5b)){
+		printf(pmsg,0x82ab,"");
+	}else {
+		printf(pmsg,0x82ab,"not");
+		err=1;
+	}
+	if(((output(0x83ab,0),input(0x83ab)&0x7c)==0x00)&&
+		((output(0x83ab,0x14),input(0x83ab)&0x7c)==0x14)){
+		printf(pmsg,0x83ab,"");
+	}else {
+		printf(pmsg,0x83ab,"not");
+		err=1;
+	}
+	output(0x83ab,0);
+	if(err){
+		puts("ZXNetUsb not found!\r\nPress reset.");
+		while(1);
+	}
+}
+void findchips(void){
+	printf("w5300 through ports...");
+	output(0x82ab,0x50);
+	output(0x81ab,0x03);
+	if((input(0x3eab)==0x53)&&(input(0x3fab)==0x00)) puts("found");
+	else puts("not found!");
+	printf("w5300 through memmap...");
+	output(0x82ab,0x4c);
+	if(*WIDW==0x5300) puts("found");
+	else puts("not found!");
+}
 void main(void){ 
+	winlog();
+	testports();
     wiz_reset();
+	findchips();
+	//puts("Press any key");
+	//getkey();
+	//while(!getkey());
     WIZ_SYS_INIT(wb,wb);
     memcpy(SHAR,mac,6); 
 	my_im2_init(myint);

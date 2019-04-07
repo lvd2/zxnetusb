@@ -30,9 +30,9 @@ unsigned char get_evo_rtc(unsigned char addr)
 }       
 void wiz_reset(void)
 {
-	output(0x83ab,0);
+	//output(0x83ab,0);
 	DelayMs(100);
-	output(0x83ab,0x10);
+	output(0x83ab,0x30);
 	DelayMs(500);
 	
 	output(0x82ab,0x4c);
