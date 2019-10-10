@@ -1,13 +1,27 @@
 ZX NET+USB: история создания и устройство.
 
+ZX NET+USB: design and a history of creation.
+
 
 
 Zxbus-карта "ZX NET+USB" позволяет работать с интернетом, локальной сетью и
 usb-устройствами вроде флешек, а также может сама быть usb-девайсом.
 
-В выступлении я расскажу о непростой истории появления на свет этой карты, о
+"ZX NET+USB" is a zxbus-compatible device that opens up new possibilities of
+network and USB interactions for your Spectrum. You can surf WWW, use IRC,
+write and read files on an USB stick and even have your Spectrum as an USB
+device.
+
+
+В выступлении **lvd** расскажет о непростой истории появления на свет этой карты, о
 ее устройстве и немного -- о том, как работать с ней со стороны спектрума.
+
+In this report, **lvd** will tell you about the story behind creation of the device,
+its design and the ways software can interact with it.
+
 
 Также будет упомянуто об уже существующих и только планируемых программах c
 поддержкой интернета и USB в среде NedoOS.
 
+A little will be said about the software support in NedoOS, existing and planned
+software products.
