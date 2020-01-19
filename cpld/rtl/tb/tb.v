@@ -6,8 +6,13 @@
 
 `timescale 1ns/100ps
 
-//// CPU at 14MHz
-`define HALF_CPU_PERIOD (35.7)
+//// CPU at 14 or 28MHz
+`ifdef CPU28MHZ
+ `define HALF_CPU_PERIOD (17.8)
+`else
+ `define HALF_CPU_PERIOD (35.7)
+`endif
+
 
 // CPU at 7MHz
 //`define HALF_CPU_PERIOD (70)
@@ -251,7 +256,9 @@ module tb;
 		begin
 			case( $random%6 )
 			0: check_sl811_access();
+`ifndef CPU28MHZ
 			1: check_w5300_mem_access();
+`endif
 			2: check_w5300_port_access();
 			3: test_resets();
 			4: check_sl811_port();
@@ -393,7 +400,11 @@ module tb;
 			rddata = $random>>24;
 			w.set_rd_data(rddata);
 			z.iord(port,tmp);
-			@(negedge clk);
+`ifdef CPU28MHZ
+			wait_end_access();
+`else
+ 			@(negedge clk);
+`endif
 			if( w.get_addr()!==(waddr^a0_inv) ||
 			    w.get_rnw()!==1'b1            ||
 			    tmp!==rddata                  )
@@ -554,10 +565,14 @@ module tb;
 		rddata=$random>>24;
 		s.set_rd_data(rddata);
 		z.iord(sl_addr,tmp);
-		@(negedge clk);
+`ifdef CPU28MHZ
+		wait_end_access();
+`else
+ 		@(negedge clk);
+`endif
 		if( s.get_rnw()!==1'b1 || s.get_addr()!==1'b0 || tmp!==rddata )
 		begin
-			$display("sl811 address read failed!");
+			$display("sl811 address read failed! rddata=%h, tmp=%h, get_rnw=%d, reg_addr=%h",rddata,tmp,s.get_rnw(),s.get_addr());
 			$stop;
 		end
 
@@ -578,7 +593,11 @@ module tb;
 		rddata=$random>>24;
 		s.set_rd_data(rddata);
 		z.iord(rdport,tmp);
-		@(negedge clk);
+`ifdef CPU28MHZ
+		wait_end_access();
+`else
+ 		@(negedge clk);
+`endif
 		if( s.get_rnw()!==1'b1 || s.get_addr()!==1'b1 || tmp!==rddata )
 		begin
 			$display("sl811 data read failed!");

@@ -1,0 +1,4 @@
+#!/bin/bash
+
+vlog -sv -novopt -incr +define+CPU28MHZ=1 -f files -f testbench
+
