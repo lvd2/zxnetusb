@@ -256,9 +256,9 @@ module tb;
 		begin
 			case( $random%6 )
 			0: check_sl811_access();
-`ifndef CPU28MHZ
-			1: check_w5300_mem_access();
-`endif
+//`ifndef CPU28MHZ
+//			1: check_w5300_mem_access();
+//`endif
 			2: check_w5300_port_access();
 			3: test_resets();
 			4: check_sl811_port();
